@@ -7,6 +7,7 @@ export const siteConfig = {
   title: "Ravi Zulfikar — Software Developer",
   description:
     "Portfolio Ravi Zulfikar, software developer yang fokus pada ekosistem PHP & Laravel, Python, Node.js, RESTful API, dan integrasi sistem.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://zivar.my.id",
   email: "ravizulfikar17@gmail.com",
   location: "Jakarta Utara, Indonesia",
   socials: {
