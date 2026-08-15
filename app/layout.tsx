@@ -5,6 +5,7 @@ import { siteConfig } from "@/data/portfolio";
 import ScrollProgress from "@/components/ScrollProgress";
 import CursorGlow from "@/components/CursorGlow";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -199,6 +200,7 @@ export default function RootLayout({
           <CursorGlow />
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
