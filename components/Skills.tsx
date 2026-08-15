@@ -1,40 +1,22 @@
+"use client";
+
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
-
-const skillMatrix = [
-  {
-    category: "Backend & Pemrograman",
-    description: "Pengembangan arsitektur backend, RESTful API performa tinggi, modular business logic, dan integrasi sistem.",
-    skills: ["PHP", "Laravel", "Python", "Node.js", "RESTful API", "SSO & OAuth2"],
-  },
-  {
-    category: "Database & Data Storage",
-    description: "Perancangan database relasional, optimasi index & query, serta sinkronisasi data warehouse.",
-    skills: ["PostgreSQL", "MySQL", "Query Tuning", "Data Warehouse", "Database Indexing", "Data Interoperability"],
-  },
-  {
-    category: "Tools & Repository",
-    description: "Pengelolaan version control repository, kolaborasi tim, administrasi server Linux, dan otomasi IoT.",
-    skills: ["Git", "GitHub", "GitLab", "Linux Server Admin", "Server Integration", "IoT / Raspberry Pi"],
-  },
-  {
-    category: "Frontend & Web",
-    description: "Pembuatan antarmuka web responsif, styling modern, dan integrasi WebView pada aplikasi Android.",
-    skills: ["JavaScript", "HTML5 & CSS3", "Tailwind CSS", "Android WebView"],
-  },
-];
+import { useLanguage } from "./LanguageProvider";
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   return (
     <section id="skills" className="relative mx-auto max-w-5xl px-4 py-24 sm:px-6">
       <SectionHeading
-        tag="KEAHLIAN"
-        title="Keahlian & Teknologi"
-        subtitle="Rangkaian bahasa pemrograman, database, dan alat repository yang digunakan dalam membangun sistem enterprise."
+        tag={t.skills.tag}
+        title={t.skills.title}
+        subtitle={t.skills.subtitle}
       />
 
       <div className="grid gap-6 sm:grid-cols-2">
-        {skillMatrix.map((cat, i) => (
+        {t.skills.categories.map((cat, i) => (
           <Reveal key={cat.category} delay={i * 0.08}>
             <div className="flat-card flat-card-hover p-6 sm:p-7 flex h-full flex-col justify-between">
               <div>

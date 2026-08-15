@@ -3,17 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { projects } from "@/data/portfolio";
 import SectionHeading from "./SectionHeading";
+import { useLanguage } from "./LanguageProvider";
 
 type ProjectCategory = "all" | "gov" | "api" | "internal";
-
-const categories: { id: ProjectCategory; label: string }[] = [
-  { id: "all", label: "Semua" },
-  { id: "gov", label: "Layanan Publik" },
-  { id: "api", label: "API & Integrasi" },
-  { id: "internal", label: "Sistem Internal" },
-];
 
 function getCategoryForProject(title: string, tags: string[]): ProjectCategory[] {
   const t = title.toLowerCase();
@@ -22,8 +15,10 @@ function getCategoryForProject(title: string, tags: string[]): ProjectCategory[]
   if (
     t.includes("jakevo") ||
     t.includes("karir") ||
+    t.includes("career") ||
     t.includes("dtkte") ||
-    t.includes("antrian")
+    t.includes("antrian") ||
+    t.includes("queue")
   ) {
     cats.push("gov");
   }
@@ -32,13 +27,16 @@ function getCategoryForProject(title: string, tags: string[]): ProjectCategory[]
     t.includes("api") ||
     tags.includes("REST API") ||
     t.includes("datawarehouse") ||
-    t.includes("dinas sosial")
+    t.includes("data warehouse") ||
+    t.includes("dinas sosial") ||
+    t.includes("social agency")
   ) {
     cats.push("api");
   }
 
   if (
     t.includes("kepegawaian") ||
+    t.includes("staff") ||
     t.includes("esarpras") ||
     t.includes("sarpras") ||
     t.includes("monitoring") ||
@@ -52,10 +50,11 @@ function getCategoryForProject(title: string, tags: string[]): ProjectCategory[]
 }
 
 export default function Projects() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>("all");
   const [imgErrorMap, setImgErrorMap] = useState<Record<string, boolean>>({});
 
-  const filteredProjects = projects.items.filter((item) => {
+  const filteredProjects = t.projects.items.filter((item) => {
     const cats = getCategoryForProject(item.title, item.tags);
     return cats.includes(activeCategory);
   });
@@ -63,19 +62,19 @@ export default function Projects() {
   return (
     <section id="projects" className="relative mx-auto max-w-5xl px-4 py-24 sm:px-6">
       <SectionHeading
-        tag="PORTOFOLIO"
-        title="Proyek Unggulan"
-        subtitle="Koleksi aplikasi layanan publik, gerbang API perizinan, dan sistem internal yang dibangun untuk Pemprov DKI Jakarta."
+        tag={t.projects.tag}
+        title={t.projects.title}
+        subtitle={t.projects.subtitle}
       />
 
       {/* Category Tabs */}
       <div className="mb-10 flex flex-wrap items-center gap-2">
-        {categories.map((cat) => {
+        {t.projects.categories.map((cat) => {
           const isActive = activeCategory === cat.id;
           return (
             <button
               key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
+              onClick={() => setActiveCategory(cat.id as ProjectCategory)}
               className={`rounded-lg px-3.5 py-1.5 text-xs font-medium transition-colors ${
                 isActive
                   ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
@@ -164,11 +163,11 @@ export default function Projects() {
                           rel="noopener noreferrer"
                           className="font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 inline-flex items-center gap-1"
                         >
-                          <span>Buka Layanan</span>
+                          <span>{t.projects.liveDemo}</span>
                           <span>↗</span>
                         </a>
                       ) : (
-                        <span className="text-slate-400">Sistem Internal</span>
+                        <span className="text-slate-400">{t.projects.internalProject}</span>
                       )}
 
                       {project.github && (

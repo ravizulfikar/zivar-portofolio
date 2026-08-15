@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { hero, siteConfig } from "@/data/portfolio";
+import { siteConfig } from "@/data/portfolio";
 import Typewriter from "./Typewriter";
+import { useLanguage } from "./LanguageProvider";
 
 const techPills = [
   "PHP",
@@ -15,13 +16,24 @@ const techPills = [
   "Git (GitHub & GitLab)",
 ];
 
-const highlights = [
-  { value: "5+ Tahun", label: "Pengalaman Kerja" },
-  { value: "12+", label: "Sistem Terintegrasi" },
-  { value: "3", label: "Sertifikasi Resmi" },
-];
-
 export default function Hero() {
+  const { t, lang } = useLanguage();
+
+  const highlights = [
+    {
+      value: "5+ " + (lang === "en" ? "Years" : "Tahun"),
+      label: lang === "en" ? "Experience" : "Pengalaman Kerja",
+    },
+    {
+      value: "12+",
+      label: lang === "en" ? "Integrated Systems" : "Sistem Terintegrasi",
+    },
+    {
+      value: "3",
+      label: lang === "en" ? "Certifications" : "Sertifikasi Resmi",
+    },
+  ];
+
   return (
     <section
       id="top"
@@ -36,7 +48,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1 text-xs font-mono font-medium text-slate-700 dark:border-slate-800 dark:bg-[#11141f] dark:text-slate-300 mb-6"
         >
           <span className="h-2 w-2 rounded-full bg-emerald-500" />
-          <span>Software Programmer @ DPMPTSP DKI Jakarta</span>
+          <span>{t.hero.availabilityBadge}</span>
         </motion.div>
 
         {/* Heading */}
@@ -58,7 +70,7 @@ export default function Hero() {
         >
           <span>&gt;</span>
           <span className="text-slate-800 dark:text-slate-200">
-            <Typewriter words={hero.roles} />
+            <Typewriter key={lang} words={t.hero.roles} />
           </span>
         </motion.div>
 
@@ -69,7 +81,7 @@ export default function Hero() {
           transition={{ duration: 0.4, delay: 0.15 }}
           className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-400"
         >
-          Software Developer di DPMPTSP Provinsi DKI Jakarta dengan pengalaman 5+ tahun. Berfokus pada perancangan <span className="font-semibold text-slate-900 dark:text-white">RESTful API</span>, arsitektur backend <span className="font-semibold text-slate-900 dark:text-white">PHP & Laravel</span>, Python, Node.js, optimasi database relasional, serta integrasi sistem perizinan publik warga Jakarta.
+          {t.hero.bio}
         </motion.p>
 
         {/* Action Buttons */}
@@ -83,7 +95,7 @@ export default function Hero() {
             href="#projects"
             className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
           >
-            <span>Lihat Proyek</span>
+            <span>{t.hero.ctaProjects}</span>
             <span>↓</span>
           </a>
 
@@ -108,14 +120,14 @@ export default function Hero() {
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            <span>Unduh CV (PDF)</span>
+            <span>{t.hero.ctaCV}</span>
           </a>
 
           <a
             href="#contact"
             className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:bg-[#11141f] dark:text-slate-300 dark:hover:bg-slate-800"
           >
-            <span>Hubungi Saya</span>
+            <span>{t.hero.ctaContact}</span>
           </a>
 
           <a
@@ -124,7 +136,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-mono font-medium text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#11141f] dark:text-slate-400 dark:hover:text-white"
           >
-            <span>GitHub ↗</span>
+            <span>{t.hero.github}</span>
           </a>
         </motion.div>
 
@@ -136,7 +148,7 @@ export default function Hero() {
           className="mt-12 border-t border-slate-200/80 pt-6 dark:border-slate-800"
         >
           <span className="font-mono text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider block mb-3">
-            Core Technologies:
+            {t.hero.coreTech}
           </span>
           <div className="flex flex-wrap gap-2">
             {techPills.map((pill) => (
@@ -159,10 +171,10 @@ export default function Hero() {
         >
           {highlights.map((item) => (
             <div key={item.label}>
-              <span className="font-display text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
+              <span className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
                 {item.value}
               </span>
-              <p className="font-mono text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              <p className="mt-0.5 font-mono text-xs text-slate-500 dark:text-slate-400">
                 {item.label}
               </p>
             </div>

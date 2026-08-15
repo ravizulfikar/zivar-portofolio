@@ -1,10 +1,26 @@
 "use client";
 
 import { useState } from "react";
-import { packagist } from "@/data/portfolio";
 import SectionHeading from "./SectionHeading";
+import { useLanguage } from "./LanguageProvider";
 
-function PackageCard({ pkg }: { pkg: (typeof packagist.items)[number] }) {
+function PackageCard({
+  pkg,
+  copyLabel,
+  copiedLabel,
+  viewLabel,
+}: {
+  pkg: {
+    name: string;
+    description: string;
+    url: string;
+    downloads: string;
+    stars: number;
+  };
+  copyLabel: string;
+  copiedLabel: string;
+  viewLabel: string;
+}) {
   const [copied, setCopied] = useState(false);
   const command = `composer require ${pkg.name}`;
 
@@ -31,7 +47,7 @@ function PackageCard({ pkg }: { pkg: (typeof packagist.items)[number] }) {
             href={pkg.url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Buka ${pkg.name}`}
+            aria-label={`Open ${pkg.name}`}
             className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -59,7 +75,7 @@ function PackageCard({ pkg }: { pkg: (typeof packagist.items)[number] }) {
                 : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
             }`}
           >
-            {copied ? "Tersalin" : "Copy"}
+            {copied ? copiedLabel : copyLabel}
           </button>
         </div>
       </div>
@@ -72,7 +88,7 @@ function PackageCard({ pkg }: { pkg: (typeof packagist.items)[number] }) {
           rel="noopener noreferrer"
           className="font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400"
         >
-          Lihat di Packagist ↗
+          {viewLabel}
         </a>
       </div>
     </div>
@@ -80,17 +96,25 @@ function PackageCard({ pkg }: { pkg: (typeof packagist.items)[number] }) {
 }
 
 export default function Packagist() {
+  const { t } = useLanguage();
+
   return (
     <section id="packages" className="relative mx-auto max-w-5xl px-4 py-24 sm:px-6">
       <SectionHeading
-        tag="OPEN SOURCE"
-        title={packagist.title}
-        subtitle={packagist.subtitle}
+        tag={t.packagist.tag}
+        title={t.packagist.title}
+        subtitle={t.packagist.subtitle}
       />
 
       <div className="grid gap-6 sm:grid-cols-2">
-        {packagist.items.map((pkg) => (
-          <PackageCard key={pkg.name} pkg={pkg} />
+        {t.packagist.items.map((pkg) => (
+          <PackageCard
+            key={pkg.name}
+            pkg={pkg}
+            copyLabel={t.packagist.copy}
+            copiedLabel={t.packagist.copied}
+            viewLabel={t.packagist.viewOnPackagist}
+          />
         ))}
       </div>
     </section>

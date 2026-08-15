@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360">
+  <defs>
+    <linearGradient id="iconBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#4338CA" />
+    </linearGradient>
+    <filter id="logoGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#4338CA" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <style>
+    .brand-title {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      font-weight: 800;
+      font-size: 64px;
+      letter-spacing: -0.03em;
+      fill: #0F172A;
+    }
+    .brand-role {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: 0.08em;
+      fill: #4F46E5;
+    }
+    .brand-meta {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      fill: #64748B;
+    }
+    .pill-bg {
+      fill: #F1F5F9;
+      stroke: #E2E8F0;
+      stroke-width: 1.5;
+    }
+    .pill-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 600;
+      font-size: 14px;
+      fill: #334155;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .brand-title { fill: #FFFFFF; }
+      .brand-role { fill: #818CF8; }
+      .brand-meta { fill: #94A3B8; }
+      .pill-bg { fill: #1E293B; stroke: #334155; }
+      .pill-text { fill: #CBD5E1; }
+    }
+  </style>
+
+  <!-- Left Icon Mark -->
+  <g transform="translate(48, 48)">
+    <!-- Squircle (264x264) -->
+    <rect width="264" height="264" rx="68" fill="url(#iconBg)" filter="url(#logoGlow)" />
+    <rect x="6" y="6" width="252" height="252" rx="62" fill="none" stroke="#C7D2FE" stroke-width="3" stroke-opacity="0.4" />
+
+    <!-- Monogram RZ scaled to 264x264 (ratio ~ 0.515) -->
+    <g transform="translate(6, 6) scale(0.492)" fill="#FFFFFF">
+      <!-- Letter R -->
+      <path d="M 112 136 C 112 125 121 116 132 116 L 224 116 C 268 116 298 142 298 184 C 298 218 274 242 242 250 L 298 364 C 303 374 296 386 284 386 L 240 386 C 232 386 226 381 222 374 L 176 270 L 164 270 L 164 366 C 164 377 155 386 144 386 L 132 386 C 121 386 112 377 112 366 Z M 164 168 L 164 222 L 216 222 C 238 222 248 210 248 195 C 248 180 238 168 216 168 Z" />
+      <!-- Letter Z -->
+      <path d="M 284 136 C 284 125 293 116 304 116 L 396 116 C 407 116 416 125 416 136 L 416 162 C 416 171 411 179 403 184 L 332 294 L 396 294 C 407 294 416 303 416 314 L 416 366 C 416 377 407 386 396 386 L 294 386 C 283 386 274 377 274 366 L 274 340 C 274 331 279 323 287 318 L 358 208 L 304 208 C 293 208 284 199 284 188 Z" />
+    </g>
+
+    <!-- Active Dot -->
+    <circle cx="218" cy="46" r="14" fill="#10B981" stroke="#4338CA" stroke-width="4" />
+  </g>
+
+  <!-- Right Typography & Meta -->
+  <g transform="translate(360, 0)">
+    <!-- Main Name -->
+    <text x="0" y="126" class="brand-title">RAVI ZULFIKAR<tspan fill="#4F46E5">.</tspan></text>
+    
+    <!-- Subtitle / Role -->
+    <text x="0" y="174" class="brand-role">&gt; SOFTWARE DEVELOPER &amp; BACKEND SPECIALIST</text>
+    
+    <!-- Experience & Agency -->
+    <text x="0" y="214" class="brand-meta">DPMPTSP PROVINSI DKI JAKARTA  •  5+ YEARS EXPERIENCE</text>
+
+    <!-- Tech Stack Badges -->
+    <g transform="translate(0, 246)">
+      <!-- PHP -->
+      <rect x="0" y="0" width="62" height="34" rx="8" class="pill-bg" />
+      <text x="31" y="22" text-anchor="middle" class="pill-text">PHP</text>
+
+      <!-- Laravel -->
+      <rect x="74" y="0" width="82" height="34" rx="8" class="pill-bg" />
+      <text x="115" y="22" text-anchor="middle" class="pill-text">Laravel</text>
+
+      <!-- Python -->
+      <rect x="168" y="0" width="80" height="34" rx="8" class="pill-bg" />
+      <text x="208" y="22" text-anchor="middle" class="pill-text">Python</text>
+
+      <!-- Node.js -->
+      <rect x="260" y="0" width="86" height="34" rx="8" class="pill-bg" />
+      <text x="303" y="22" text-anchor="middle" class="pill-text">Node.js</text>
+
+      <!-- PostgreSQL -->
+      <rect x="358" y="0" width="112" height="34" rx="8" class="pill-bg" />
+      <text x="414" y="22" text-anchor="middle" class="pill-text">PostgreSQL</text>
+
+      <!-- REST API -->
+      <rect x="482" y="0" width="96" height="34" rx="8" class="pill-bg" />
+      <text x="530" y="22" text-anchor="middle" class="pill-text">REST API</text>
+    </g>
+  </g>
+</svg>

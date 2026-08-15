@@ -4,19 +4,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/data/portfolio";
 import ThemeToggle from "./ThemeToggle";
-
-const links = [
-  { label: "Tentang", href: "#about" },
-  { label: "Proyek", href: "#projects" },
-  { label: "Keahlian", href: "#skills" },
-  { label: "Open Source", href: "#packages" },
-  { label: "Pengalaman", href: "#experience" },
-];
+import LanguageToggle from "./LanguageToggle";
+import { useLanguage } from "./LanguageProvider";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const { t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => {
@@ -64,7 +59,7 @@ export default function Navbar() {
 
         {/* Desktop Nav Links */}
         <ul className="hidden items-center gap-1 md:flex">
-          {links.map((link) => {
+          {t.nav.links.map((link) => {
             const isActive = activeSection === link.href;
             return (
               <li key={link.href}>
@@ -84,7 +79,8 @@ export default function Navbar() {
         </ul>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          <LanguageToggle />
           <ThemeToggle />
 
           <a
@@ -99,14 +95,14 @@ export default function Navbar() {
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            <span>CV</span>
+            <span>{t.nav.cvBtn}</span>
           </a>
 
           <a
             href="#contact"
             className="hidden sm:inline-flex items-center rounded-lg bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
           >
-            Hubungi
+            {t.nav.contactBtn}
           </a>
 
           {/* Mobile menu button */}
@@ -143,8 +139,16 @@ export default function Navbar() {
             transition={{ duration: 0.15 }}
             className="absolute inset-x-4 top-16 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg dark:border-slate-800 dark:bg-[#11141f] md:hidden"
           >
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-2 dark:border-slate-800">
+              <span className="font-mono text-xs font-semibold text-slate-400">Language / Theme</span>
+              <div className="flex items-center gap-2">
+                <LanguageToggle />
+                <ThemeToggle />
+              </div>
+            </div>
+
             <ul className="space-y-1">
-              {links.map((link) => (
+              {t.nav.links.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
@@ -169,14 +173,14 @@ export default function Navbar() {
                     <polyline points="7 10 12 15 17 10" />
                     <line x1="12" y1="15" x2="12" y2="3" />
                   </svg>
-                  <span>Unduh CV</span>
+                  <span>{t.nav.cvBtn} (PDF)</span>
                 </a>
                 <a
                   href="#contact"
                   onClick={() => setOpen(false)}
                   className="flex-1 flex items-center justify-center rounded-lg bg-indigo-600 py-2.5 text-xs font-semibold text-white"
                 >
-                  Hubungi
+                  {t.nav.contactBtn}
                 </a>
               </li>
             </ul>

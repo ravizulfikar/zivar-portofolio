@@ -5,6 +5,7 @@ import { siteConfig } from "@/data/portfolio";
 import ScrollProgress from "@/components/ScrollProgress";
 import CursorGlow from "@/components/CursorGlow";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { LanguageProvider } from "@/components/LanguageProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -125,6 +126,14 @@ export const metadata: Metadata = {
       "Software Developer di DPMPTSP Provinsi DKI Jakarta. Spesialisasi pada PHP, Laravel, Python, Node.js, dan RESTful API.",
     creator: "@ravizulfikar",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/apple-icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -185,7 +194,7 @@ export default function RootLayout({
 
   return (
     <html
-      lang="id"
+      lang="en"
       suppressHydrationWarning
       className={`scroll-smooth ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
@@ -197,9 +206,11 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen font-sans text-slate-600 dark:text-slate-400 antialiased transition-colors duration-200">
         <ThemeProvider>
-          <ScrollProgress />
-          <CursorGlow />
-          {children}
+          <LanguageProvider>
+            <ScrollProgress />
+            <CursorGlow />
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

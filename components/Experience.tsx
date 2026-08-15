@@ -1,19 +1,24 @@
-import { certifications, experience, siteConfig } from "@/data/portfolio";
+"use client";
+
+import { siteConfig } from "@/data/portfolio";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import { useLanguage } from "./LanguageProvider";
 
 export default function Experience() {
+  const { t } = useLanguage();
+
   return (
     <section id="experience" className="relative mx-auto max-w-5xl px-4 py-24 sm:px-6">
       <SectionHeading
-        tag="REKAM JEJAK"
-        title="Pengalaman Profesional"
-        subtitle="Perjalanan karir pengembangan perangkat lunak dan integrasi sistem di lingkungan DPMPTSP Provinsi DKI Jakarta."
+        tag={t.experience.tag}
+        title={t.experience.title}
+        subtitle={t.experience.subtitle}
       />
 
       {/* Experience List */}
       <div className="space-y-4 mb-14">
-        {experience.items.map((item, i) => (
+        {t.experience.items.map((item, i) => (
           <Reveal key={item.role} delay={i * 0.08}>
             <div className="flat-card flat-card-hover p-6 sm:p-7">
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 dark:border-slate-800">
@@ -30,7 +35,7 @@ export default function Experience() {
                 </div>
 
                 <span className="rounded-lg bg-slate-100 px-2.5 py-1 font-mono text-[11px] text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-                  Pemprov DKI Jakarta
+                  {item.badge}
                 </span>
               </div>
 
@@ -47,10 +52,10 @@ export default function Experience() {
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div>
             <h3 className="font-display text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-              Sertifikasi Keahlian Resmi
+              {t.experience.certTitle}
             </h3>
             <p className="font-mono text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-              Lisensi, sertifikasi kompetensi, dan pelatihan resmi yang telah diselesaikan.
+              {t.experience.certSubtitle}
             </p>
           </div>
 
@@ -75,13 +80,13 @@ export default function Experience() {
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            <span>Unduh CV (PDF)</span>
+            <span>{t.experience.downloadCV}</span>
           </a>
         </div>
 
         {/* Certifications List - same full-width stacked card style as Experience */}
         <div className="space-y-4">
-          {certifications.map((cert, idx) => (
+          {t.experience.certItems.map((cert, idx) => (
             <Reveal key={cert.title} delay={idx * 0.08}>
               <div className="flat-card flat-card-hover p-6 sm:p-7">
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 dark:border-slate-800">
@@ -111,7 +116,7 @@ export default function Experience() {
                 {cert.credentialId && (
                   <div className="mt-3.5 flex items-center gap-2 font-mono text-xs text-slate-500 dark:text-slate-400">
                     <span className="font-semibold text-indigo-600 dark:text-indigo-400">
-                      No. Kredensial / Registrasi:
+                      {t.experience.regNoLabel}
                     </span>
                     <span className="rounded bg-slate-100 px-2 py-0.5 text-slate-700 select-all dark:bg-slate-800 dark:text-slate-300 font-medium">
                       {cert.credentialId.replace(/^No\.\s*/i, "")}
