@@ -10,6 +10,7 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://zivar.my.id",
   email: "ravizulfikar17@gmail.com",
   location: "Jakarta Utara, Indonesia",
+  cvUrl: "/docs/cv_ravi_zulfikar.pdf",
   socials: {
     github: "https://github.com/ravizulfikar",
     linkedin: "https://www.linkedin.com/in/ravizulfikar",
@@ -226,10 +227,42 @@ export const experience = {
   ],
 };
 
-export const certifications = [
-  "Sertifikat PHP Programming — LKP Duta (No. K9990278)",
-  "Sertifikat Concept HTML Programming Skill — Akademy",
-  "Pelatihan Android Developer (Kotlin) — KOMINFO (No. 0448079131-21/OA.DTS/BLSDM.KOMINFO/2020)",
+export interface CertificationItem {
+  title: string;
+  issuer: string;
+  credentialId?: string;
+  type: string;
+  badge?: string;
+  description: string;
+}
+
+export const certifications: CertificationItem[] = [
+  {
+    title: "Sertifikat PHP Programming",
+    issuer: "LKP Duta",
+    credentialId: "K9990278",
+    type: "Sertifikasi Keahlian",
+    badge: "LKP Duta",
+    description:
+      "Sertifikasi kompetensi resmi pemrograman PHP yang mencakup penguasaan logika backend, interaksi basis data relasional, implementasi clean code, serta arsitektur aplikasi web modern. Terdaftar resmi dengan Nomor Sertifikat: K9990278.",
+  },
+  {
+    title: "Sertifikat Concept HTML Programming Skill",
+    issuer: "Akademy",
+    type: "Sertifikasi Keahlian",
+    badge: "Akademy",
+    description:
+      "Sertifikasi keahlian dan pemahaman standarisasi antarmuka web, mencakup hierarki struktur dokumen HTML5 semantik, aksesibilitas dasar, dan kesiapan integrasi styling modern.",
+  },
+  {
+    title: "Pelatihan Android Developer (Kotlin)",
+    issuer: "Kementerian Komunikasi dan Informatika RI (KOMINFO) — Digital Talent Scholarship",
+    credentialId: "0448079131-21/OA.DTS/BLSDM.KOMINFO/2020",
+    type: "Pelatihan & Sertifikasi Resmi",
+    badge: "KOMINFO (DTS)",
+    description:
+      "Program pelatihan intensif pengembangan aplikasi mobile Android menggunakan bahasa pemrograman Kotlin yang diselenggarakan resmi oleh Kementerian Komunikasi dan Informatika RI (DTS). Nomor Registrasi: 0448079131-21/OA.DTS/BLSDM.KOMINFO/2020.",
+  },
 ];
 
 export const contact = {
