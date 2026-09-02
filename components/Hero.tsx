@@ -102,8 +102,6 @@ export default function Hero() {
           <a
             href={siteConfig.cvUrl}
             download="CV_Ravi_Zulfikar.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50/80 px-5 py-3 text-sm font-semibold text-indigo-700 transition-all hover:bg-indigo-100 hover:border-indigo-300 dark:border-indigo-900/50 dark:bg-indigo-950/50 dark:text-indigo-300 dark:hover:bg-indigo-900/50"
           >
             <svg
@@ -128,6 +126,17 @@ export default function Hero() {
             className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:bg-[#11141f] dark:text-slate-300 dark:hover:bg-slate-800"
           >
             <span>{t.hero.ctaContact}</span>
+          </a>
+
+          <a
+            href={siteConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={lang === "en" ? "Chat with Ravi on WhatsApp" : "Chat dengan Ravi melalui WhatsApp"}
+            className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+          >
+            <span>WhatsApp</span>
+            <span aria-hidden>↗</span>
           </a>
 
           <a

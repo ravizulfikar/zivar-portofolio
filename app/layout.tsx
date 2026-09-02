@@ -39,63 +39,31 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Software Developer, Laravel & Backend Specialist | zivar.my.id`,
+    default: `${siteConfig.name} — Software Developer Laravel Jakarta`,
     template: `%s | ${siteConfig.name} — zivar.my.id`,
   },
   description:
-    "Portfolio resmi Ravi Zulfikar (zivar.my.id), Software Developer di DPMPTSP Provinsi DKI Jakarta. Spesialisasi pada ekosistem PHP & Laravel, Python, Node.js, perancangan RESTful API performa tinggi, database PostgreSQL/MySQL, dan integrasi sistem perizinan publik.",
+    "Portofolio Ravi Zulfikar (Zivar), software developer Laravel dan backend di Jakarta yang berfokus pada REST API, PostgreSQL, serta integrasi sistem GovTech.",
   keywords: [
-    // Branding & Personal Queries
     "Ravi Zulfikar",
     "Zivar",
     "zivar.my.id",
-    "Ravi Zulfikar Portfolio",
-    "Ravi Zulfikar Developer",
-    "Ravi Zulfikar DPMPTSP",
-    "Zivar Dev",
-    
-    // High-Intent & Trending Tech Queries (Indonesia & Global)
+    "Ravi Zulfikar developer",
     "Software Developer Jakarta",
-    "Senior Laravel Developer Indonesia",
+    "Laravel Developer Jakarta",
     "Backend Developer Jakarta",
-    "Fullstack Developer Jakarta",
-    "Web Developer Indonesia Terbaik",
-    "Programmer Jakarta",
-    "PHP Engineer Indonesia",
-    "Python Developer Jakarta",
-    "Node.js Developer Jakarta",
-    "RESTful API Specialist",
-    "Jasa Pembuatan Website Jakarta",
-    "Jasa Web Developer Profesional",
-    "Freelance Software Developer Jakarta",
-    "Jasa Integrasi API Sistem",
-    "Software Engineer Indonesia",
-    
-    // GovTech & Public Sector Keywords
-    "DPMPTSP DKI Jakarta Programmer",
-    "Developer Jakevo Jakarta",
-    "Pengembang Sistem Pemerintahan",
     "GovTech Developer Indonesia",
-    "Sistem Perizinan Jakarta",
-    "Integrator Data Jakarta",
-    "Pusdatin DPMPTSP Jakarta",
-    
-    // Tech Stack Keywords
     "PHP",
     "Laravel",
-    "Python",
-    "Node.js",
-    "PostgreSQL",
-    "MySQL",
-    "Tailwind CSS",
-    "Linux Server Administrator",
-    "Packagist PHP Developer",
-    "Git GitHub GitLab Developer",
+    "RESTful API",
+    "System Integration",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.socials.github }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
   category: "technology",
+  applicationName: `${siteConfig.name} Portfolio`,
+  referrer: "origin-when-cross-origin",
   alternates: {
     canonical: "/",
   },
@@ -111,19 +79,20 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `${siteConfig.name} — Software Developer & Laravel Specialist`,
+    title: `${siteConfig.name} — Software Developer Laravel Jakarta`,
     description:
-      "Software Developer di DPMPTSP Provinsi DKI Jakarta dengan 5+ tahun pengalaman pada PHP, Laravel, RESTful API, Python, Node.js, dan integrasi sistem.",
+      "Portofolio software developer Laravel dan backend di Jakarta dengan fokus REST API, database, dan integrasi sistem GovTech.",
     url: siteConfig.url,
     siteName: `${siteConfig.name} Portfolio`,
     locale: "id_ID",
+    alternateLocale: ["en_US"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Software Developer`,
+    title: `${siteConfig.name} — Software Developer Laravel Jakarta`,
     description:
-      "Software Developer di DPMPTSP Provinsi DKI Jakarta. Spesialisasi pada PHP, Laravel, Python, Node.js, dan RESTful API.",
+      "Portofolio Ravi Zulfikar: Laravel, PHP, REST API, database, dan integrasi sistem GovTech di Jakarta.",
     creator: "@ravizulfikar",
   },
   icons: {
@@ -155,10 +124,13 @@ export default function RootLayout({
         },
         description: siteConfig.description,
         url: siteConfig.url,
+        email: `mailto:${siteConfig.email}`,
+        telephone: siteConfig.phone,
         sameAs: [
           siteConfig.socials.github,
           siteConfig.socials.linkedin,
           siteConfig.socials.instagram,
+          siteConfig.socials.whatsapp,
           "https://packagist.org/users/ravizulfikar/",
         ],
         knowsAbout: [
@@ -172,6 +144,7 @@ export default function RootLayout({
           "System Integration",
           "Web Development",
         ],
+        knowsLanguage: ["id", "en"],
         address: {
           "@type": "PostalAddress",
           addressLocality: "Jakarta Utara",
@@ -187,6 +160,16 @@ export default function RootLayout({
         publisher: {
           "@id": `${siteConfig.url}/#person`,
         },
+        inLanguage: ["en", "id-ID"],
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": `${siteConfig.url}/#profile-page`,
+        url: siteConfig.url,
+        name: `${siteConfig.name} — Software Developer Laravel Jakarta`,
+        description: siteConfig.description,
+        mainEntity: { "@id": `${siteConfig.url}/#person` },
+        isPartOf: { "@id": `${siteConfig.url}/#website` },
         inLanguage: "id-ID",
       },
     ],
@@ -194,11 +177,16 @@ export default function RootLayout({
 
   return (
     <html
-      lang="en"
+      lang="id"
       suppressHydrationWarning
       className={`scroll-smooth ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('zivar-theme');var d=t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.add(d?'dark':'light')}catch(e){document.documentElement.classList.add('light')}})()`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

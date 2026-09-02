@@ -127,8 +127,8 @@ export const translations: Record<Language, Translations> = {
     nav: {
       links: [
         { label: "About", href: "#about" },
-        { label: "Projects", href: "#projects" },
         { label: "Skills", href: "#skills" },
+        { label: "Projects", href: "#projects" },
         { label: "Open Source", href: "#packages" },
         { label: "Experience", href: "#experience" },
       ],
@@ -163,7 +163,7 @@ export const translations: Record<Language, Translations> = {
       principles: [
         {
           title: "Performance & Scalability",
-          desc: "Optimizing database queries and RESTful API endpoints to handle millions of licensing transactions for DKI Jakarta citizens.",
+          desc: "Optimizing database queries and RESTful API endpoints for high-volume public-service workflows serving Jakarta citizens.",
         },
         {
           title: "Security & Integrity",
@@ -390,7 +390,7 @@ export const translations: Record<Language, Translations> = {
         "Career journey in software engineering and system integration within DPMPTSP DKI Jakarta Provincial Government.",
       items: [
         {
-          period: "2023 — Present (3 Yrs 8 Mos)",
+          period: "2023 — Present",
           role: "Software Programmer",
           company: "DPMPTSP DKI Jakarta Provincial Government — Pusdatin",
           badge: "DKI Jakarta Gov",
@@ -461,7 +461,7 @@ export const translations: Record<Language, Translations> = {
       messageLabel: "Message / Inquiries",
       messagePlaceholder: "Write your message or project collaboration idea...",
       submitBtn: "Send Message",
-      submittedBtn: "✓ Message Sent",
+      submittedBtn: "Your email app has been opened. Send the draft there to complete your message.",
     },
     footer: {
       roleLocation: "Software Developer — Jakarta, Indonesia.",
@@ -472,8 +472,8 @@ export const translations: Record<Language, Translations> = {
     nav: {
       links: [
         { label: "Tentang", href: "#about" },
-        { label: "Proyek", href: "#projects" },
         { label: "Keahlian", href: "#skills" },
+        { label: "Proyek", href: "#projects" },
         { label: "Open Source", href: "#packages" },
         { label: "Pengalaman", href: "#experience" },
       ],
@@ -508,7 +508,7 @@ export const translations: Record<Language, Translations> = {
       principles: [
         {
           title: "Performa & Skalabilitas",
-          desc: "Optimasi query database relasional dan endpoint REST API untuk menangani jutaan transaksi perizinan warga DKI Jakarta.",
+          desc: "Optimasi query database relasional dan endpoint REST API untuk mendukung alur layanan publik bervolume tinggi bagi warga DKI Jakarta.",
         },
         {
           title: "Keamanan & Integritas",
@@ -735,7 +735,7 @@ export const translations: Record<Language, Translations> = {
         "Perjalanan karir pengembangan perangkat lunak dan integrasi sistem di lingkungan DPMPTSP Provinsi DKI Jakarta.",
       items: [
         {
-          period: "2023 — Sekarang (3 Tahun 8 Bulan)",
+          period: "2023 — Sekarang",
           role: "Software Programmer",
           company: "DPMPTSP Provinsi DKI Jakarta — Pusdatin",
           badge: "Pemprov DKI Jakarta",
@@ -806,7 +806,7 @@ export const translations: Record<Language, Translations> = {
       messageLabel: "Pesan / Ide Kolaborasi",
       messagePlaceholder: "Tuliskan pesan atau kebutuhan proyek Anda di sini...",
       submitBtn: "Kirim Pesan",
-      submittedBtn: "✓ Pesan Terkirim",
+      submittedBtn: "Aplikasi email telah dibuka. Kirim draf tersebut untuk menyelesaikan pesan Anda.",
     },
     footer: {
       roleLocation: "Software Developer — Jakarta, Indonesia.",

@@ -14,18 +14,18 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Language>("en");
+  const [lang, setLangState] = useState<Language>("id");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Check saved language preference or default to English ("en")
+    // Check saved language preference or default to Bahasa Indonesia.
     const savedLang = localStorage.getItem("zivar-lang") as Language | null;
     if (savedLang === "en" || savedLang === "id") {
       setLangState(savedLang);
       document.documentElement.lang = savedLang;
     } else {
-      setLangState("en");
-      document.documentElement.lang = "en";
+      setLangState("id");
+      document.documentElement.lang = "id";
     }
     setMounted(true);
   }, []);

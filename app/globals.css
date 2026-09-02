@@ -37,6 +37,15 @@
     transition: background-color 0.25s ease, color 0.25s ease;
   }
 
+  :focus-visible {
+    outline: 3px solid rgba(79, 70, 229, 0.55);
+    outline-offset: 3px;
+  }
+
+  section[id] {
+    scroll-margin-top: 6.5rem;
+  }
+
   ::selection {
     background: rgba(99, 102, 241, 0.2);
     color: #4338ca;
@@ -45,6 +54,21 @@
   html.dark ::selection {
     background: rgba(99, 102, 241, 0.35);
     color: #ffffff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

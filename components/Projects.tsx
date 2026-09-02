@@ -75,6 +75,7 @@ export default function Projects() {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id as ProjectCategory)}
+              aria-pressed={activeCategory === cat.id}
               className={`rounded-lg px-3.5 py-1.5 text-xs font-medium transition-colors ${
                 isActive
                   ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"

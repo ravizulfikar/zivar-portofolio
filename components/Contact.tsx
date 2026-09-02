@@ -11,10 +11,17 @@ export default function Contact() {
   const [copied, setCopied] = useState(false);
   const [sent, setSent] = useState(false);
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText(siteConfig.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const [copyFailed, setCopyFailed] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(siteConfig.email);
+      setCopyFailed(false);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopyFailed(true);
+    }
   };
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -62,6 +69,11 @@ export default function Contact() {
               >
                 {copied ? t.contact.copiedEmail : t.contact.copyEmail}
               </button>
+              {copyFailed && (
+                <p role="alert" className="mt-2 font-mono text-xs text-rose-600 dark:text-rose-400">
+                  {lang === "en" ? "Copy failed. Please select the address manually." : "Gagal menyalin. Silakan pilih alamat secara manual."}
+                </p>
+              )}
             </div>
           </Reveal>
 
@@ -82,6 +94,15 @@ export default function Contact() {
           <Reveal delay={0.12}>
             <div className="flex gap-3">
               <a
+                href={siteConfig.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={lang === "en" ? "Chat with Ravi on WhatsApp" : "Chat dengan Ravi melalui WhatsApp"}
+                className="flex-1 rounded-xl bg-emerald-600 p-4 text-center font-mono text-xs font-semibold text-white transition-colors hover:bg-emerald-700"
+              >
+                WhatsApp ↗
+              </a>
+              <a
                 href={siteConfig.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -89,15 +110,15 @@ export default function Contact() {
               >
                 GitHub ↗
               </a>
-              <a
-                href={siteConfig.socials.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 flat-card p-4 text-center font-mono text-xs font-semibold text-slate-700 hover:text-indigo-600 dark:text-slate-300 transition-colors"
-              >
-                LinkedIn ↗
-              </a>
             </div>
+            <a
+              href={siteConfig.socials.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 block flat-card p-4 text-center font-mono text-xs font-semibold text-slate-700 hover:text-indigo-600 dark:text-slate-300 transition-colors"
+            >
+              LinkedIn ↗
+            </a>
           </Reveal>
         </div>
 
@@ -161,7 +182,7 @@ export default function Contact() {
                 </button>
 
                 {sent && (
-                  <p className="font-mono text-xs text-emerald-600 pt-2 dark:text-emerald-400">
+                  <p role="status" className="font-mono text-xs text-emerald-600 pt-2 dark:text-emerald-400">
                     {t.contact.submittedBtn}
                   </p>
                 )}
