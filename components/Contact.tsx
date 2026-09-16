@@ -100,7 +100,7 @@ export default function Contact() {
                 aria-label={lang === "en" ? "Chat with Ravi on WhatsApp" : "Chat dengan Ravi melalui WhatsApp"}
                 className="flex-1 rounded-xl bg-emerald-600 p-4 text-center font-mono text-xs font-semibold text-white transition-colors hover:bg-emerald-700"
               >
-                WhatsApp ↗
+                WhatsApp
               </a>
               <a
                 href={siteConfig.socials.github}
@@ -108,7 +108,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="flex-1 flat-card p-4 text-center font-mono text-xs font-semibold text-slate-700 hover:text-indigo-600 dark:text-slate-300 transition-colors"
               >
-                GitHub ↗
+                GitHub
               </a>
             </div>
             <a
@@ -117,7 +117,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="mt-3 block flat-card p-4 text-center font-mono text-xs font-semibold text-slate-700 hover:text-indigo-600 dark:text-slate-300 transition-colors"
             >
-              LinkedIn ↗
+              LinkedIn
             </a>
           </Reveal>
         </div>
@@ -178,7 +178,7 @@ export default function Contact() {
                   type="submit"
                   className="rounded-xl bg-slate-900 px-6 py-3 text-xs font-semibold text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
                 >
-                  {t.contact.submitBtn} →
+                  {t.contact.submitBtn}
                 </button>
 
                 {sent && (

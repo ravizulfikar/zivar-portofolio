@@ -1,7 +1,7 @@
 /** Site-wide identity and links. Localized page content lives in translations.ts. */
 export const siteConfig = {
   name: "Ravi Zulfikar",
-  title: "Ravi Zulfikar — Software Developer",
+  title: "Ravi Zulfikar, Software Developer",
   description:
     "Portfolio Ravi Zulfikar, software developer yang fokus pada PHP, Laravel, RESTful API, database relasional, dan integrasi sistem.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://zivar.my.id",

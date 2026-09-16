@@ -50,7 +50,7 @@ function getCategoryForProject(title: string, tags: string[]): ProjectCategory[]
 }
 
 export default function Projects() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>("all");
   const [imgErrorMap, setImgErrorMap] = useState<Record<string, boolean>>({});
 
@@ -91,7 +91,7 @@ export default function Projects() {
       {/* Projects Grid */}
       <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence>
-          {filteredProjects.map((project) => {
+          {filteredProjects.map((project, index) => {
             const isLive = Boolean(project.link);
 
             return (
@@ -102,11 +102,11 @@ export default function Projects() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="h-full"
+                className={`h-full ${index === 0 ? "sm:col-span-2 lg:col-span-2" : ""}`}
               >
-                <div className="flat-card flat-card-hover flex h-full flex-col overflow-hidden">
+                <div className={`flat-card flat-card-hover flex h-full flex-col overflow-hidden ${index === 0 ? "sm:flex-row" : ""}`}>
                   {/* Thumbnail / Header */}
-                  <div className="relative aspect-[16/9] w-full bg-slate-100 dark:bg-[#0c0e14] border-b border-slate-100 dark:border-slate-800">
+                  <div className={`relative aspect-[16/9] w-full bg-slate-100 dark:bg-[#0c0e14] border-b border-slate-100 dark:border-slate-800 ${index === 0 ? "sm:min-h-full sm:w-1/2 sm:border-b-0 sm:border-r" : ""}`}>
                     {project.image && !imgErrorMap[project.title] ? (
                       <Image
                         src={project.image}
@@ -129,13 +129,13 @@ export default function Projects() {
                     {isLive && (
                       <span className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 rounded-md bg-white/95 px-2 py-0.5 font-mono text-[10px] font-medium text-emerald-700 shadow-xs dark:bg-slate-900/90 dark:text-emerald-300">
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                        Live
+                        {lang === "en" ? "Public link" : "Tautan publik"}
                       </span>
                     )}
                   </div>
 
                   {/* Body */}
-                  <div className="flex flex-1 flex-col p-5">
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
                     <h3 className="font-display text-base font-bold text-slate-900 dark:text-white">
                       {project.title}
                     </h3>
@@ -165,7 +165,6 @@ export default function Projects() {
                           className="font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 inline-flex items-center gap-1"
                         >
                           <span>{t.projects.liveDemo}</span>
-                          <span>↗</span>
                         </a>
                       ) : (
                         <span className="text-slate-400">{t.projects.internalProject}</span>

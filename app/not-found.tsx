@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
       <span className="font-mono text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-2">
-        404 — Halaman Tidak Ditemukan
+        404: Halaman Tidak Ditemukan
       </span>
       <h1 className="font-display text-4xl font-extrabold text-slate-900 dark:text-white sm:text-5xl">
         Halaman tidak tersedia.

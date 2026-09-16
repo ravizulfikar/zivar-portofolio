@@ -148,7 +148,7 @@ export const translations: Record<Language, Translations> = {
       ctaProjects: "View Projects",
       ctaCV: "Download CV (PDF)",
       ctaContact: "Contact Me",
-      github: "GitHub ↗",
+      github: "GitHub",
       coreTech: "Core Technologies:",
     },
     about: {
@@ -248,7 +248,7 @@ export const translations: Record<Language, Translations> = {
       internalProject: "Internal System",
       items: [
         {
-          title: "Jakevo — Public Licensing Portal DPMPTSP DKI Jakarta",
+          title: "Jakevo: Public Licensing Portal DPMPTSP DKI Jakarta",
           description:
             "Public licensing portal: application forms for PBG/PM1 & various permits, SSO login, cross-agency data integration, officer processing ETA, application reports, and internal cloud drive (Jakevo Drive).",
           tags: ["Laravel", "PHP", "PostgreSQL", "SSO"],
@@ -257,7 +257,7 @@ export const translations: Record<Language, Translations> = {
           github: "",
         },
         {
-          title: "API Jakevo — DPMPTSP Service Integration",
+          title: "API Jakevo: DPMPTSP Service Integration",
           description:
             "Centralized integration API for DPMPTSP services: endpoints for external government agencies (SIP, IMB permits), real-time timeline endpoints, and internal microservices.",
           tags: ["Laravel", "REST API", "PostgreSQL"],
@@ -275,7 +275,7 @@ export const translations: Record<Language, Translations> = {
           github: "",
         },
         {
-          title: "Karir Jakarta — DTKTE DKI Jakarta",
+          title: "Karir Jakarta: DTKTE DKI Jakarta",
           description:
             "Provincial career portal: job listings CRUD, cross-department job & event data synchronization, and integrated Jobfair module.",
           tags: ["Laravel", "REST API", "MySQL"],
@@ -322,7 +322,7 @@ export const translations: Record<Language, Translations> = {
         {
           title: "E-Sarpras PTSP Performance System",
           description:
-            "End-to-end IT hardware & network technician performance tracking system — independently built from ground up featuring digital signature verification workflows.",
+            "End-to-end IT hardware and network technician performance tracking system, independently built from the ground up with digital signature verification workflows.",
           tags: ["Laravel", "PHP", "Digital Signature"],
           image: "/images/projects/esarpras.png",
           link: "",
@@ -338,7 +338,7 @@ export const translations: Record<Language, Translations> = {
           github: "",
         },
         {
-          title: "SIPKA — Archival Information System",
+          title: "SIPKA: Archival Information System",
           description:
             "Archivist performance assessment and archival grading system adopted across the Jakarta Provincial Government.",
           tags: ["Laravel", "PHP", "MySQL"],
@@ -363,7 +363,7 @@ export const translations: Record<Language, Translations> = {
       subtitle: "PHP packages authored and published on Packagist.",
       copy: "Copy",
       copied: "Copied",
-      viewOnPackagist: "View on Packagist ↗",
+      viewOnPackagist: "View on Packagist",
       items: [
         {
           name: "zivar/laravel-security",
@@ -376,7 +376,7 @@ export const translations: Record<Language, Translations> = {
         {
           name: "zivar/laravel-starter",
           description:
-            "Zivar System Laravel Starter Kit — RBAC, Audit Logging, Media Center & System Telemetry.",
+            "Zivar System Laravel Starter Kit: RBAC, Audit Logging, Media Center & System Telemetry.",
           url: "https://packagist.org/packages/zivar/laravel-starter",
           downloads: "Latest release",
           stars: 0,
@@ -390,17 +390,17 @@ export const translations: Record<Language, Translations> = {
         "Career journey in software engineering and system integration within DPMPTSP DKI Jakarta Provincial Government.",
       items: [
         {
-          period: "2023 — Present",
+          period: "2023 to present",
           role: "Software Programmer",
-          company: "DPMPTSP DKI Jakarta Provincial Government — Pusdatin",
+          company: "DPMPTSP DKI Jakarta Provincial Government, Pusdatin",
           badge: "DKI Jakarta Gov",
           description:
             "Developing and maintaining public service applications built on PHP/Laravel, engineering RESTful APIs, and optimizing PostgreSQL/MySQL queries for provincial licensing systems.",
         },
         {
-          period: "2021 — 2023 (2 Years)",
+          period: "2021 to 2023 (2 years)",
           role: "Data & System Integrator",
-          company: "DPMPTSP DKI Jakarta Provincial Government — Pusdatin",
+          company: "DPMPTSP DKI Jakarta Provincial Government, Pusdatin",
           badge: "DKI Jakarta Gov",
           description:
             "Managing inter-agency data integration across government systems, database synchronization, and ensuring high reliability for public licensing interoperability.",
@@ -430,7 +430,7 @@ export const translations: Record<Language, Translations> = {
         {
           title: "Android Developer Training (Kotlin)",
           issuer:
-            "Ministry of Communication and Informatics RI (KOMINFO) — Digital Talent Scholarship",
+            "Ministry of Communication and Informatics RI (KOMINFO), Digital Talent Scholarship",
           credentialId: "0448079131-21/OA.DTS/BLSDM.KOMINFO/2020",
           type: "Official Training & Certification",
           badge: "KOMINFO (DTS)",
@@ -447,7 +447,7 @@ export const translations: Record<Language, Translations> = {
       tag: "CONTACT",
       title: "Let's Work Together",
       subtitle:
-        "Interested in collaborating or have any questions? Send a message — I usually reply within 24 hours.",
+        "Interested in collaborating or have a question? Send a message. I usually reply within 24 hours.",
       directEmail: "Direct Email",
       copyEmail: "Copy Email Address",
       copiedEmail: "✓ Email Copied",
@@ -464,8 +464,8 @@ export const translations: Record<Language, Translations> = {
       submittedBtn: "Your email app has been opened. Send the draft there to complete your message.",
     },
     footer: {
-      roleLocation: "Software Developer — Jakarta, Indonesia.",
-      backToTop: "Back to top ↑",
+      roleLocation: "Software Developer, Jakarta, Indonesia.",
+      backToTop: "Back to top",
     },
   },
   id: {
@@ -493,7 +493,7 @@ export const translations: Record<Language, Translations> = {
       ctaProjects: "Lihat Proyek",
       ctaCV: "Unduh CV (PDF)",
       ctaContact: "Hubungi Saya",
-      github: "GitHub ↗",
+      github: "GitHub",
       coreTech: "Core Technologies:",
     },
     about: {
@@ -593,7 +593,7 @@ export const translations: Record<Language, Translations> = {
       internalProject: "Sistem Internal",
       items: [
         {
-          title: "Jakevo — Layanan Warga DPMPTSP DKI Jakarta",
+          title: "Jakevo: Layanan Warga DPMPTSP DKI Jakarta",
           description:
             "Portal layanan perizinan warga: formulir permohonan PBG/PM1 & izin lain, login SSO, integrasi data antar-OPD, ETA proses petugas, report permohonan, dan Jakevo Drive (penyimpanan internal).",
           tags: ["Laravel", "PHP", "PostgreSQL", "SSO"],
@@ -602,7 +602,7 @@ export const translations: Record<Language, Translations> = {
           github: "",
         },
         {
-          title: "API Jakevo — Integrasi Layanan DPMPTSP",
+          title: "API Jakevo: Integrasi Layanan DPMPTSP",
           description:
             "Sistem integrasi API layanan DPMPTSP: endpoint untuk OPD lain (Izin SIP, Izin IMB), endpoint timeline, dan endpoint internal.",
           tags: ["Laravel", "REST API", "PostgreSQL"],
@@ -620,7 +620,7 @@ export const translations: Record<Language, Translations> = {
           github: "",
         },
         {
-          title: "Karir Jakarta — DTKTE DKI Jakarta",
+          title: "Karir Jakarta: DTKTE DKI Jakarta",
           description:
             "Portal karir: modul jobs/CRUD lowongan, integrasi data pekerjaan & event antar-OPD, dan fitur Jobfair.",
           tags: ["Laravel", "REST API", "MySQL"],
@@ -667,7 +667,7 @@ export const translations: Record<Language, Translations> = {
         {
           title: "E-Sarpras Kinerja PTSP",
           description:
-            "Sistem pencatatan kinerja teknisi (komputer, jaringan, printer) end-to-end — dibangun sepenuhnya secara mandiri, dengan proses tanda tangan digital.",
+            "Sistem pencatatan kinerja teknisi komputer, jaringan, dan printer, dibangun secara mandiri dengan proses tanda tangan digital.",
           tags: ["Laravel", "PHP", "Tanda Tangan Digital"],
           image: "/images/projects/esarpras.png",
           link: "",
@@ -683,7 +683,7 @@ export const translations: Record<Language, Translations> = {
           github: "",
         },
         {
-          title: "SIPKA — Sistem Informasi Kearsipan",
+          title: "SIPKA: Sistem Informasi Kearsipan",
           description:
             "Modul penilaian kinerja arsiparis yang dipakai untuk kearsipan Pemda DKI Jakarta.",
           tags: ["Laravel", "PHP", "MySQL"],
@@ -708,7 +708,7 @@ export const translations: Record<Language, Translations> = {
       subtitle: "Paket PHP yang saya publikasikan di Packagist.",
       copy: "Salin",
       copied: "Tersalin",
-      viewOnPackagist: "Lihat di Packagist ↗",
+      viewOnPackagist: "Lihat di Packagist",
       items: [
         {
           name: "zivar/laravel-security",
@@ -721,7 +721,7 @@ export const translations: Record<Language, Translations> = {
         {
           name: "zivar/laravel-starter",
           description:
-            "Zivar System Laravel Starter Kit — RBAC, Audit Logging, Media Center & System Telemetry.",
+            "Zivar System Laravel Starter Kit: RBAC, Audit Logging, Media Center & System Telemetry.",
           url: "https://packagist.org/packages/zivar/laravel-starter",
           downloads: "Baru rilis",
           stars: 0,
@@ -735,17 +735,17 @@ export const translations: Record<Language, Translations> = {
         "Perjalanan karir pengembangan perangkat lunak dan integrasi sistem di lingkungan DPMPTSP Provinsi DKI Jakarta.",
       items: [
         {
-          period: "2023 — Sekarang",
+          period: "2023 sampai sekarang",
           role: "Software Programmer",
-          company: "DPMPTSP Provinsi DKI Jakarta — Pusdatin",
+          company: "DPMPTSP Provinsi DKI Jakarta, Pusdatin",
           badge: "Pemprov DKI Jakarta",
           description:
             "Mengembangkan dan memelihara aplikasi layanan publik berbasis PHP/Laravel, membangun RESTful API, serta mengoptimalkan query MySQL/PostgreSQL untuk sistem perizinan warga.",
         },
         {
-          period: "2021 — 2023 (2 Tahun)",
+          period: "2021 sampai 2023 (2 tahun)",
           role: "Integrator Data / System",
-          company: "DPMPTSP Provinsi DKI Jakarta — Pusdatin",
+          company: "DPMPTSP Provinsi DKI Jakarta, Pusdatin",
           badge: "Pemprov DKI Jakarta",
           description:
             "Menangani integrasi data antar sistem pemerintahan, sinkronisasi basis data, dan memastikan interoperabilitas layanan perizinan berjalan andal.",
@@ -775,7 +775,7 @@ export const translations: Record<Language, Translations> = {
         {
           title: "Pelatihan Android Developer (Kotlin)",
           issuer:
-            "Kementerian Komunikasi dan Informatika RI (KOMINFO) — Digital Talent Scholarship",
+            "Kementerian Komunikasi dan Informatika RI (KOMINFO), Digital Talent Scholarship",
           credentialId: "0448079131-21/OA.DTS/BLSDM.KOMINFO/2020",
           type: "Pelatihan & Sertifikasi Resmi",
           badge: "KOMINFO (DTS)",
@@ -792,7 +792,7 @@ export const translations: Record<Language, Translations> = {
       tag: "KONTAK",
       title: "Mari Bekerja Sama",
       subtitle:
-        "Tertarik bekerja sama atau punya pertanyaan? Kirim pesan — saya biasanya membalas dalam 24 jam.",
+        "Tertarik bekerja sama atau punya pertanyaan? Kirim pesan. Saya biasanya membalas dalam 24 jam.",
       directEmail: "Email Langsung",
       copyEmail: "Salin Alamat Email",
       copiedEmail: "✓ Email Tersalin",
@@ -809,8 +809,8 @@ export const translations: Record<Language, Translations> = {
       submittedBtn: "Aplikasi email telah dibuka. Kirim draf tersebut untuk menyelesaikan pesan Anda.",
     },
     footer: {
-      roleLocation: "Software Developer — Jakarta, Indonesia.",
-      backToTop: "Kembali ke atas ↑",
+      roleLocation: "Software Developer, Jakarta, Indonesia.",
+      backToTop: "Kembali ke atas",
     },
   },
 };

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/data/portfolio";
 
-export const alt = `${siteConfig.name} — Software Developer & Laravel Specialist`;
+export const alt = `${siteConfig.name}, Software Developer & Laravel Specialist`;
 export const size = {
   width: 1200,
   height: 630,

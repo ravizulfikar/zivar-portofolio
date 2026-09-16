@@ -8,15 +8,12 @@ import LanguageToggle from "./LanguageToggle";
 import { useLanguage } from "./LanguageProvider";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const { t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 20);
-
       const sections = ["about", "skills", "projects", "packages", "experience", "contact"];
       const scrollPos = window.scrollY + 200;
       for (const section of sections) {
@@ -38,20 +35,16 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 py-3.5 sm:px-6">
+    <header className="fixed inset-x-0 top-0 z-50 flex justify-center border-b border-[#d8cfc0] bg-[#f7f3eb]/95 px-4 py-2 sm:px-6 dark:border-[#535a50] dark:bg-[#1e211d]/95">
       <nav
-        className={`flex w-full max-w-5xl items-center justify-between rounded-2xl px-4 py-2.5 transition-all duration-200 ${
-          scrolled
-            ? "border border-slate-200/90 bg-white/95 shadow-sm backdrop-blur-md dark:border-slate-800 dark:bg-[#11141f]/95"
-            : "border border-transparent bg-transparent"
-        }`}
+        className="flex w-full max-w-5xl items-center justify-between py-1"
       >
         {/* Brand */}
         <a
           href="#top"
-          className="flex items-center gap-2 font-display text-sm font-bold tracking-tight text-slate-900 dark:text-white"
+          className="flex items-center gap-2 font-display text-base font-semibold tracking-tight text-[#24211d] dark:text-[#fffaf2]"
         >
-          <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-indigo-600 font-mono text-xs font-bold text-white">
+          <span className="flex h-7 w-7 items-center justify-center bg-[#a4452d] font-mono text-xs font-bold text-[#fffaf2]">
             RZ
           </span>
           <span className="font-semibold">{siteConfig.name}</span>
@@ -68,8 +61,8 @@ export default function Navbar() {
                   aria-current={isActive ? "location" : undefined}
                   className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
                     isActive
-                      ? "bg-slate-100 text-indigo-600 font-semibold dark:bg-slate-800 dark:text-indigo-400"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-200 dark:hover:bg-slate-800/50"
+                      ? "text-[#a4452d] font-semibold dark:text-[#df9b86]"
+                      : "text-[#5e584e] hover:text-[#24211d] dark:text-[#c9c3b7] dark:hover:text-[#fffaf2]"
                   }`}
                 >
                   {link.label}
@@ -87,7 +80,7 @@ export default function Navbar() {
           <a
             href={siteConfig.cvUrl}
             download="CV_Ravi_Zulfikar.pdf"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-mono text-xs font-semibold text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
+            className="hidden sm:inline-flex min-h-11 items-center gap-1.5 border border-[#d8cfc0] px-3 py-1.5 font-mono text-xs font-semibold text-[#39352e] transition-colors hover:border-[#a4452d] dark:border-[#535a50] dark:text-[#f4efe5]"
           >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -99,7 +92,7 @@ export default function Navbar() {
 
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center rounded-lg bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
+            className="hidden sm:inline-flex min-h-11 items-center bg-[#24211d] px-3.5 py-1.5 text-xs font-semibold text-[#fffaf2] transition-colors hover:bg-[#a4452d] dark:bg-[#fffaf2] dark:text-[#24211d]"
           >
             {t.nav.contactBtn}
           </a>
@@ -110,7 +103,7 @@ export default function Navbar() {
             aria-label={open ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={open}
             aria-controls="mobile-navigation"
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 transition-colors hover:bg-slate-100 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 md:hidden"
+            className="flex h-11 min-w-11 items-center justify-center border border-[#d8cfc0] text-[#39352e] transition-colors hover:border-[#a4452d] dark:border-[#535a50] dark:text-[#f4efe5] md:hidden"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               {open ? (
@@ -139,7 +132,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.15 }}
-            className="absolute inset-x-4 top-16 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg dark:border-slate-800 dark:bg-[#11141f] md:hidden"
+            className="absolute inset-x-4 top-16 border border-[#d8cfc0] bg-[#fffaf2] p-4 dark:border-[#535a50] dark:bg-[#282c27] md:hidden"
           >
             <ul className="space-y-1">
               {t.nav.links.map((link) => {

@@ -1,194 +1,48 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { siteConfig } from "@/data/portfolio";
-import Typewriter from "./Typewriter";
 import { useLanguage } from "./LanguageProvider";
-
-const techPills = [
-  "PHP",
-  "Laravel",
-  "Python",
-  "Node.js",
-  "RESTful API",
-  "PostgreSQL",
-  "MySQL",
-  "Git (GitHub & GitLab)",
-];
 
 export default function Hero() {
   const { t, lang } = useLanguage();
 
-  const highlights = [
-    {
-      value: "5+ " + (lang === "en" ? "Years" : "Tahun"),
-      label: lang === "en" ? "Experience" : "Pengalaman Kerja",
-    },
-    {
-      value: "12+",
-      label: lang === "en" ? "Integrated Systems" : "Sistem Terintegrasi",
-    },
-    {
-      value: "3",
-      label: lang === "en" ? "Certifications" : "Sertifikasi Resmi",
-    },
-  ];
-
   return (
-    <section
-      id="top"
-      className="relative mx-auto max-w-5xl px-4 pt-32 pb-20 sm:px-6 sm:pt-40 sm:pb-28"
-    >
-      <div>
-        {/* Availability Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35 }}
-          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1 text-xs font-mono font-medium text-slate-700 dark:border-slate-800 dark:bg-[#11141f] dark:text-slate-300 mb-6"
-        >
-          <span className="h-2 w-2 rounded-full bg-emerald-500" />
-          <span>{t.hero.availabilityBadge}</span>
-        </motion.div>
-
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className="font-display text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-6xl lg:text-7xl leading-[1.08]"
-        >
-          Ravi Zulfikar.
-        </motion.h1>
-
-        {/* Dynamic Tagline */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-          className="mt-3 flex items-center gap-2 font-mono text-lg sm:text-xl font-medium text-indigo-600 dark:text-indigo-400"
-        >
-          <span>&gt;</span>
-          <span className="text-slate-800 dark:text-slate-200">
-            <Typewriter key={lang} words={t.hero.roles} />
-          </span>
-        </motion.div>
-
-        {/* Bio Text */}
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.15 }}
-          className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-400"
-        >
-          {t.hero.bio}
-        </motion.p>
-
-        {/* Action Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="mt-8 flex flex-wrap items-center gap-3.5"
-        >
-          <a
-            href="#projects"
-            className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
-          >
-            <span>{t.hero.ctaProjects}</span>
-            <span>↓</span>
-          </a>
-
-          <a
-            href={siteConfig.cvUrl}
-            download="CV_Ravi_Zulfikar.pdf"
-            className="inline-flex items-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50/80 px-5 py-3 text-sm font-semibold text-indigo-700 transition-all hover:bg-indigo-100 hover:border-indigo-300 dark:border-indigo-900/50 dark:bg-indigo-950/50 dark:text-indigo-300 dark:hover:bg-indigo-900/50"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            <span>{t.hero.ctaCV}</span>
-          </a>
-
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:bg-[#11141f] dark:text-slate-300 dark:hover:bg-slate-800"
-          >
-            <span>{t.hero.ctaContact}</span>
-          </a>
-
-          <a
-            href={siteConfig.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={lang === "en" ? "Chat with Ravi on WhatsApp" : "Chat dengan Ravi melalui WhatsApp"}
-            className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
-          >
-            <span>WhatsApp</span>
-            <span aria-hidden>↗</span>
-          </a>
-
-          <a
-            href={siteConfig.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-mono font-medium text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-[#11141f] dark:text-slate-400 dark:hover:text-white"
-          >
-            <span>{t.hero.github}</span>
-          </a>
-        </motion.div>
-
-        {/* Tech Stack Pills */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.25 }}
-          className="mt-12 border-t border-slate-200/80 pt-6 dark:border-slate-800"
-        >
-          <span className="font-mono text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider block mb-3">
-            {t.hero.coreTech}
-          </span>
-          <div className="flex flex-wrap gap-2">
-            {techPills.map((pill) => (
-              <span
-                key={pill}
-                className="rounded-lg border border-slate-200 bg-white px-3 py-1 font-mono text-xs font-medium text-slate-700 dark:border-slate-800 dark:bg-[#11141f] dark:text-slate-300"
-              >
-                {pill}
-              </span>
-            ))}
+    <section id="top" className="mx-auto max-w-5xl px-4 pb-20 pt-28 sm:px-6 sm:pb-28 sm:pt-36">
+      <div className="border-y border-[#d8cfc0] py-9 dark:border-[#535a50] sm:grid sm:grid-cols-12 sm:gap-8 sm:py-14">
+        <div className="sm:col-span-8">
+          <p className="font-mono text-xs font-medium text-[#8a3927] dark:text-[#df9b86]">
+            {lang === "en" ? "SOFTWARE DEVELOPER · JAKARTA" : "PENGEMBANG PERANGKAT LUNAK · JAKARTA"}
+          </p>
+          <h1 className="mt-5 max-w-3xl font-display text-5xl font-semibold leading-[0.98] tracking-tight text-[#24211d] dark:text-[#fffaf2] sm:text-7xl">
+            {lang === "en"
+              ? "Ravi Zulfikar builds the systems people rely on."
+              : "Ravi Zulfikar membangun sistem yang diandalkan banyak orang."}
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-[#5e584e] dark:text-[#c9c3b7] sm:text-lg">
+            {t.hero.bio}
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#projects" className="inline-flex min-h-11 items-center bg-[#24211d] px-5 text-sm font-semibold text-[#fffaf2] transition-colors hover:bg-[#a4452d] dark:bg-[#fffaf2] dark:text-[#24211d] dark:hover:bg-[#e6b7a7]">
+              {t.hero.ctaProjects}
+            </a>
+            <a href={siteConfig.cvUrl} download="CV_Ravi_Zulfikar.pdf" className="inline-flex min-h-11 items-center border border-[#a4452d] px-5 text-sm font-semibold text-[#7a301f] transition-colors hover:bg-[#f2ddd2] dark:border-[#df9b86] dark:text-[#f0b8a6] dark:hover:bg-[#3b2923]">
+              {t.hero.ctaCV}
+            </a>
           </div>
-        </motion.div>
-
-        {/* Flat Stat Highlight Bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          className="mt-10 grid grid-cols-3 gap-4 border-t border-slate-200/80 pt-6 dark:border-slate-800 max-w-xl"
-        >
-          {highlights.map((item) => (
-            <div key={item.label}>
-              <span className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-                {item.value}
-              </span>
-              <p className="mt-0.5 font-mono text-xs text-slate-500 dark:text-slate-400">
-                {item.label}
-              </p>
-            </div>
-          ))}
-        </motion.div>
+        </div>
+        <aside className="mt-10 border-t border-[#d8cfc0] pt-5 sm:col-span-4 sm:mt-0 sm:border-l sm:border-t-0 sm:pl-8 sm:pt-1 dark:border-[#535a50]">
+          <p className="font-mono text-[11px] font-medium uppercase tracking-wide text-[#7a7369] dark:text-[#aaa398]">
+            {lang === "en" ? "Current focus" : "Fokus saat ini"}
+          </p>
+          <p className="mt-3 font-display text-2xl leading-tight text-[#39352e] dark:text-[#f4efe5]">
+            {lang === "en"
+              ? "Public services, system integration, and dependable backend work."
+              : "Layanan publik, integrasi sistem, dan backend yang andal."}
+          </p>
+          <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex min-h-11 items-center font-mono text-xs font-semibold text-[#7a301f] underline decoration-[#a4452d] decoration-2 underline-offset-4 hover:text-[#a4452d] dark:text-[#f0b8a6]">
+            {lang === "en" ? "Start a conversation" : "Mulai percakapan"}
+          </a>
+        </aside>
       </div>
     </section>
   );

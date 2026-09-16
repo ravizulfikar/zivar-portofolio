@@ -1,29 +1,28 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, Fraunces, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/data/portfolio";
-import ScrollProgress from "@/components/ScrollProgress";
-import CursorGlow from "@/components/CursorGlow";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const inter = Inter({
+const sans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const display = Fraunces({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-display",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const mono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  weight: "400",
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -39,8 +38,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Software Developer Laravel Jakarta`,
-    template: `%s | ${siteConfig.name} — zivar.my.id`,
+    default: `${siteConfig.name}, Software Developer Laravel Jakarta`,
+    template: `%s | ${siteConfig.name}, zivar.my.id`,
   },
   description:
     "Portofolio Ravi Zulfikar (Zivar), software developer Laravel dan backend di Jakarta yang berfokus pada REST API, PostgreSQL, serta integrasi sistem GovTech.",
@@ -79,7 +78,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `${siteConfig.name} — Software Developer Laravel Jakarta`,
+    title: `${siteConfig.name}, Software Developer Laravel Jakarta`,
     description:
       "Portofolio software developer Laravel dan backend di Jakarta dengan fokus REST API, database, dan integrasi sistem GovTech.",
     url: siteConfig.url,
@@ -90,7 +89,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Software Developer Laravel Jakarta`,
+    title: `${siteConfig.name}, Software Developer Laravel Jakarta`,
     description:
       "Portofolio Ravi Zulfikar: Laravel, PHP, REST API, database, dan integrasi sistem GovTech di Jakarta.",
     creator: "@ravizulfikar",
@@ -156,7 +155,7 @@ export default function RootLayout({
         "@type": "WebSite",
         "@id": `${siteConfig.url}/#website`,
         url: siteConfig.url,
-        name: `${siteConfig.name} — Portfolio`,
+        name: `${siteConfig.name} Portfolio`,
         publisher: {
           "@id": `${siteConfig.url}/#person`,
         },
@@ -166,7 +165,7 @@ export default function RootLayout({
         "@type": "ProfilePage",
         "@id": `${siteConfig.url}/#profile-page`,
         url: siteConfig.url,
-        name: `${siteConfig.name} — Software Developer Laravel Jakarta`,
+        name: `${siteConfig.name}, Software Developer Laravel Jakarta`,
         description: siteConfig.description,
         mainEntity: { "@id": `${siteConfig.url}/#person` },
         isPartOf: { "@id": `${siteConfig.url}/#website` },
@@ -179,7 +178,7 @@ export default function RootLayout({
     <html
       lang="id"
       suppressHydrationWarning
-      className={`scroll-smooth ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={`scroll-smooth ${sans.variable} ${display.variable} ${mono.variable}`}
     >
       <head>
         <script
@@ -195,8 +194,6 @@ export default function RootLayout({
       <body className="min-h-screen font-sans text-slate-600 dark:text-slate-400 antialiased transition-colors duration-200">
         <ThemeProvider>
           <LanguageProvider>
-            <ScrollProgress />
-            <CursorGlow />
             {children}
           </LanguageProvider>
         </ThemeProvider>
