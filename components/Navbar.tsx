@@ -143,7 +143,7 @@ export default function Navbar() {
                     href={link.href}
                     aria-current={isActive ? "location" : undefined}
                     onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                    className="block min-h-11 px-3 py-3 text-sm font-medium text-[#5e584e] hover:bg-[#f2eadf] dark:text-[#c9c3b7] dark:hover:bg-[#30362f]"
                   >
                     {link.label}
                   </a>
@@ -155,7 +155,7 @@ export default function Navbar() {
                   href={siteConfig.cvUrl}
                   download="CV_Ravi_Zulfikar.pdf"
                   onClick={() => setOpen(false)}
-                  className="flex-1 flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 py-2.5 text-xs font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
+                  className="flex min-h-11 flex-1 items-center justify-center gap-1.5 border border-[#d8cfc0] bg-[#f7f3eb] py-2.5 text-xs font-semibold text-[#5e584e] dark:border-[#535a50] dark:bg-[#20241f] dark:text-[#c9c3b7]"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -167,7 +167,7 @@ export default function Navbar() {
                 <a
                   href="#contact"
                   onClick={() => setOpen(false)}
-                  className="flex-1 flex items-center justify-center rounded-lg bg-indigo-600 py-2.5 text-xs font-semibold text-white"
+                  className="flex min-h-11 flex-1 items-center justify-center bg-[#a4452d] py-2.5 text-xs font-semibold text-[#fffaf2]"
                 >
                   {t.nav.contactBtn}
                 </a>

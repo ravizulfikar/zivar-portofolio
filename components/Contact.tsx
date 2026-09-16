@@ -57,15 +57,15 @@ export default function Contact() {
         <div className="space-y-4 lg:col-span-5">
           <Reveal>
             <div className="flat-card p-6 sm:p-7">
-              <span className="font-mono text-xs font-semibold text-slate-400 uppercase tracking-wider block">
+              <span className="font-mono text-[11px] font-medium text-[#8a3927] uppercase tracking-wide block dark:text-[#df9b86]">
                 {t.contact.directEmail}
               </span>
-              <p className="font-mono text-sm font-bold text-slate-900 dark:text-white mt-1">
+              <p className="font-mono text-sm font-semibold text-[#24211d] dark:text-[#fffaf2] mt-1">
                 {siteConfig.email}
               </p>
               <button
                 onClick={copyEmail}
-                className="mt-3 rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-mono text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 transition-colors"
+                className="mt-3 inline-flex min-h-11 items-center border border-[#d8cfc0] px-3 py-1.5 font-mono text-xs font-medium text-[#39352e] hover:border-[#a4452d] dark:border-[#535a50] dark:text-[#f4efe5] transition-colors"
               >
                 {copied ? t.contact.copiedEmail : t.contact.copyEmail}
               </button>
@@ -80,10 +80,10 @@ export default function Contact() {
           <Reveal delay={0.06}>
             <div className="flat-card p-6 sm:p-7 flex items-center justify-between">
               <div>
-                <span className="font-mono text-xs font-semibold text-slate-400 uppercase tracking-wider block">
+                <span className="font-mono text-[11px] font-medium text-[#8a3927] uppercase tracking-wide block dark:text-[#df9b86]">
                   {t.contact.location}
                 </span>
-                <p className="font-display text-sm font-bold text-slate-900 dark:text-white mt-1">
+                <p className="font-display text-sm font-semibold text-[#24211d] dark:text-[#fffaf2] mt-1">
                   {t.contact.locationVal}
                 </p>
               </div>
@@ -98,7 +98,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={lang === "en" ? "Chat with Ravi on WhatsApp" : "Chat dengan Ravi melalui WhatsApp"}
-                className="flex-1 rounded-xl bg-emerald-600 p-4 text-center font-mono text-xs font-semibold text-white transition-colors hover:bg-emerald-700"
+              className="flex min-h-11 flex-1 items-center justify-center bg-[#24211d] p-4 text-center font-mono text-xs font-semibold text-[#fffaf2] transition-colors hover:bg-[#a4452d] dark:bg-[#fffaf2] dark:text-[#24211d] dark:hover:bg-[#e6b7a7]"
               >
                 WhatsApp
               </a>
@@ -126,14 +126,14 @@ export default function Contact() {
         <div className="lg:col-span-7">
           <Reveal delay={0.1}>
             <div className="flat-card p-6 sm:p-8">
-              <h3 className="font-display text-base font-bold text-slate-900 dark:text-white mb-4">
+              <h3 className="font-display text-2xl text-[#24211d] dark:text-[#fffaf2] mb-5">
                 {t.contact.formTitle}
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="name" className="mb-1.5 block font-mono text-xs font-medium text-slate-600 dark:text-slate-400">
+                    <label htmlFor="name" className="mb-1.5 block font-mono text-xs font-medium text-[#625b50] dark:text-[#c9c3b7]">
                       {t.contact.nameLabel}
                     </label>
                     <input
@@ -141,12 +141,12 @@ export default function Contact() {
                       name="name"
                       required
                       placeholder={t.contact.namePlaceholder}
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 font-mono text-xs text-slate-900 placeholder-slate-400 outline-none transition-colors focus:border-slate-400 focus:bg-white dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
+                      className="w-full border border-[#d8cfc0] bg-[#f7f3eb] px-3.5 py-3 font-mono text-xs text-[#24211d] placeholder-[#8b8479] transition-colors focus:border-[#a4452d] focus:bg-[#fffaf2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a4452d] dark:border-[#535a50] dark:bg-[#20241f] dark:text-[#fffaf2] dark:placeholder-[#aaa398]"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="mb-1.5 block font-mono text-xs font-medium text-slate-600 dark:text-slate-400">
+                    <label htmlFor="email" className="mb-1.5 block font-mono text-xs font-medium text-[#625b50] dark:text-[#c9c3b7]">
                       {t.contact.emailLabel}
                     </label>
                     <input
@@ -155,13 +155,13 @@ export default function Contact() {
                       type="email"
                       required
                       placeholder={t.contact.emailPlaceholder}
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 font-mono text-xs text-slate-900 placeholder-slate-400 outline-none transition-colors focus:border-slate-400 focus:bg-white dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
+                      className="w-full border border-[#d8cfc0] bg-[#f7f3eb] px-3.5 py-3 font-mono text-xs text-[#24211d] placeholder-[#8b8479] transition-colors focus:border-[#a4452d] focus:bg-[#fffaf2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a4452d] dark:border-[#535a50] dark:bg-[#20241f] dark:text-[#fffaf2] dark:placeholder-[#aaa398]"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="mb-1.5 block font-mono text-xs font-medium text-slate-600 dark:text-slate-400">
+                  <label htmlFor="message" className="mb-1.5 block font-mono text-xs font-medium text-[#625b50] dark:text-[#c9c3b7]">
                     {t.contact.messageLabel}
                   </label>
                   <textarea
@@ -170,13 +170,13 @@ export default function Contact() {
                     rows={4}
                     required
                     placeholder={t.contact.messagePlaceholder}
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 font-mono text-xs text-slate-900 placeholder-slate-400 outline-none transition-colors focus:border-slate-400 focus:bg-white dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
+                    className="w-full border border-[#d8cfc0] bg-[#f7f3eb] px-3.5 py-3 font-mono text-xs text-[#24211d] placeholder-[#8b8479] transition-colors focus:border-[#a4452d] focus:bg-[#fffaf2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a4452d] dark:border-[#535a50] dark:bg-[#20241f] dark:text-[#fffaf2] dark:placeholder-[#aaa398]"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="rounded-xl bg-slate-900 px-6 py-3 text-xs font-semibold text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
+                  className="inline-flex min-h-11 bg-[#24211d] px-6 py-3 text-xs font-semibold text-[#fffaf2] transition-colors hover:bg-[#a4452d] dark:bg-[#fffaf2] dark:text-[#24211d] dark:hover:bg-[#e6b7a7]"
                 >
                   {t.contact.submitBtn}
                 </button>

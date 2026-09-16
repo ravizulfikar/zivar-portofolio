@@ -8,7 +8,7 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="h-9 w-9 rounded-xl border border-slate-200/80 bg-slate-100/80 dark:border-slate-800 dark:bg-slate-900" />
+      <div className="h-11 w-11 border border-[#d8cfc0] bg-[#f7f3eb] dark:border-[#535a50] dark:bg-[#20241f]" />
     );
   }
 
@@ -19,7 +19,7 @@ export default function ThemeToggle() {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.92 }}
       onClick={toggleTheme}
-      className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200/90 bg-white/90 text-slate-700 shadow-sm backdrop-blur-md transition-colors hover:border-indigo-300 hover:text-indigo-600 dark:border-slate-800 dark:bg-slate-900/90 dark:text-slate-300 dark:hover:border-indigo-500/50 dark:hover:text-indigo-400"
+      className="relative flex h-11 w-11 items-center justify-center border border-[#d8cfc0] bg-[#f7f3eb] text-[#5e584e] transition-colors hover:border-[#a4452d] hover:text-[#a4452d] dark:border-[#535a50] dark:bg-[#20241f] dark:text-[#c9c3b7] dark:hover:border-[#df9b86] dark:hover:text-[#df9b86]"
       aria-label={isDark ? "Ganti ke Tema Cerah (Light Mode)" : "Ganti ke Tema Gelap (Dark Mode)"}
       title={isDark ? "Tema Cerah" : "Tema Gelap"}
     >
@@ -40,7 +40,7 @@ export default function ThemeToggle() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="text-indigo-400"
+          className="text-[#df9b86]"
         >
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
           <path d="M19 3v4" />
@@ -63,7 +63,7 @@ export default function ThemeToggle() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="text-amber-500"
+          className="text-[#a4452d]"
         >
           <circle cx="12" cy="12" r="4" />
           <path d="M12 2v2" />

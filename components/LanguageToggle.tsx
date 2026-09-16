@@ -8,7 +8,7 @@ export default function LanguageToggle({ className = "" }: { className?: string 
 
   if (!mounted) {
     return (
-      <div className={`h-9 w-[58px] rounded-xl border border-slate-200/80 bg-slate-100/80 dark:border-slate-800 dark:bg-slate-900 ${className}`} />
+      <div className={`h-11 w-[58px] border border-[#d8cfc0] bg-[#f7f3eb] dark:border-[#535a50] dark:bg-[#20241f] ${className}`} />
     );
   }
 
@@ -20,7 +20,7 @@ export default function LanguageToggle({ className = "" }: { className?: string 
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.94 }}
       onClick={toggleLang}
-      className={`relative flex h-9 items-center gap-1.5 rounded-xl border border-slate-200/90 bg-white/90 px-2.5 text-slate-700 shadow-sm backdrop-blur-md transition-colors hover:border-indigo-300 hover:text-indigo-600 dark:border-slate-800 dark:bg-slate-900/90 dark:text-slate-300 dark:hover:border-indigo-500/50 dark:hover:text-indigo-400 ${className}`}
+      className={`relative flex h-11 items-center gap-1.5 border border-[#d8cfc0] bg-[#f7f3eb] px-2.5 text-[#5e584e] transition-colors hover:border-[#a4452d] hover:text-[#a4452d] dark:border-[#535a50] dark:bg-[#20241f] dark:text-[#c9c3b7] dark:hover:border-[#df9b86] dark:hover:text-[#df9b86] ${className}`}
       aria-label={isEn ? "Switch language to Bahasa Indonesia" : "Switch language to English"}
       title={isEn ? "Ganti ke Bahasa Indonesia (ID)" : "Switch to English (EN)"}
     >
@@ -34,7 +34,7 @@ export default function LanguageToggle({ className = "" }: { className?: string 
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="text-indigo-600 dark:text-indigo-400 shrink-0"
+        className="text-[#a4452d] dark:text-[#df9b86] shrink-0"
       >
         <circle cx="12" cy="12" r="10" />
         <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />

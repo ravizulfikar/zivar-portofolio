@@ -35,10 +35,10 @@ function PackageCard({
       <div>
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h3 className="font-display text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+            <h3 className="font-display text-2xl text-[#24211d] dark:text-[#fffaf2]">
               {pkg.name}
             </h3>
-            <p className="font-mono text-xs text-indigo-600 dark:text-indigo-400 mt-0.5">
+            <p className="font-mono text-xs text-[#8a3927] dark:text-[#df9b86] mt-0.5">
               packagist.org/packages/{pkg.name}
             </p>
           </div>
@@ -48,7 +48,7 @@ function PackageCard({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Open ${pkg.name}`}
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400"
+            className="flex h-11 w-11 items-center justify-center border border-[#d8cfc0] bg-[#f7f3eb] text-[#5e584e] hover:border-[#a4452d] dark:border-[#535a50] dark:bg-[#20241f] dark:text-[#c9c3b7]"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M7 17 17 7" />
@@ -57,22 +57,22 @@ function PackageCard({
           </a>
         </div>
 
-        <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p className="mt-3 text-xs leading-6 text-[#625b50] dark:text-[#c9c3b7] sm:text-sm">
           {pkg.description}
         </p>
 
         {/* Command Box */}
-        <div className="mt-4 flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 font-mono text-xs dark:border-slate-800 dark:bg-[#0c0e14]">
+        <div className="mt-4 flex items-center justify-between border border-[#d8cfc0] bg-[#f7f3eb] px-3.5 py-3 font-mono text-xs dark:border-[#535a50] dark:bg-[#20241f]">
           <div className="flex items-center gap-2 overflow-x-auto">
-            <span className="text-indigo-600 font-bold dark:text-indigo-400">$</span>
-            <span className="text-slate-800 dark:text-slate-300">{command}</span>
+            <span className="font-bold text-[#a4452d] dark:text-[#df9b86]">$</span>
+            <span className="text-[#39352e] dark:text-[#f4efe5]">{command}</span>
           </div>
           <button
             onClick={copyCommand}
             className={`ml-2 shrink-0 rounded-md border px-2 py-0.5 text-[10px] font-semibold transition-colors ${
               copied
                 ? "border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-300"
-                : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
+                : "border-[#d8cfc0] bg-[#fffaf2] text-[#5e584e] hover:border-[#a4452d] dark:border-[#535a50] dark:bg-[#282c27] dark:text-[#c9c3b7]"
             }`}
           >
             {copied ? copiedLabel : copyLabel}
@@ -80,13 +80,13 @@ function PackageCard({
         </div>
       </div>
 
-      <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-3 text-xs font-mono text-slate-500 dark:border-slate-800">
+      <div className="mt-6 flex items-center justify-between border-t border-[#e1d8ca] pt-3 text-xs font-mono text-[#7a7369] dark:border-[#535a50]">
         <span>● {pkg.downloads}</span>
         <a
           href={pkg.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400"
+          className="font-semibold text-[#8a3927] underline underline-offset-4 hover:text-[#a4452d] dark:text-[#df9b86]"
         >
           {viewLabel}
         </a>

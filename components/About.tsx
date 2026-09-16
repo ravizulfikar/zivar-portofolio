@@ -8,34 +8,23 @@ export default function About() {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="relative mx-auto max-w-5xl px-4 py-24 sm:px-6">
-      <SectionHeading
-        tag={t.about.tag}
-        title={t.about.title}
-        subtitle={t.about.subtitle}
-      />
-
-      <div className="grid gap-8 lg:grid-cols-12">
-        {/* Narrative */}
-        <div className="lg:col-span-7 space-y-4 text-base leading-relaxed text-slate-600 dark:text-slate-400">
-          {t.about.paragraphs.map((p, idx) => (
-            <Reveal key={idx} delay={idx * 0.06}>
-              <p>{p}</p>
-            </Reveal>
+    <section id="about" className="mx-auto max-w-5xl px-4 py-24 sm:px-6 sm:py-32">
+      <SectionHeading tag={t.about.tag} title={t.about.title} subtitle={t.about.subtitle} />
+      <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+        <div className="space-y-5 text-base leading-8 text-[#5e584e] dark:text-[#c9c3b7]">
+          {t.about.paragraphs.map((paragraph, index) => (
+            <Reveal key={index} delay={index * 0.06}><p>{paragraph}</p></Reveal>
           ))}
         </div>
-
-        {/* Flat Principles List */}
-        <div className="lg:col-span-5 space-y-3.5">
-          {t.about.principles.map((item, idx) => (
-            <Reveal key={item.title} delay={idx * 0.08}>
-              <div className="flat-card p-5">
-                <h3 className="font-display text-sm font-bold text-slate-900 dark:text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {item.desc}
-                </p>
+        <div className="border-t border-[#d8cfc0] dark:border-[#535a50]">
+          {t.about.principles.map((item, index) => (
+            <Reveal key={item.title} delay={index * 0.06}>
+              <div className="grid grid-cols-[2rem_1fr] gap-4 border-b border-[#d8cfc0] py-5 dark:border-[#535a50]">
+                <span className="font-mono text-xs text-[#a4452d] dark:text-[#df9b86]">0{index + 1}</span>
+                <div>
+                  <h3 className="font-display text-xl text-[#24211d] dark:text-[#fffaf2]">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#6b6459] dark:text-[#c9c3b7]">{item.desc}</p>
+                </div>
               </div>
             </Reveal>
           ))}

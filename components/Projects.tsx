@@ -1,52 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import SectionHeading from "./SectionHeading";
 import { useLanguage } from "./LanguageProvider";
 
 type ProjectCategory = "all" | "gov" | "api" | "internal";
 
 function getCategoryForProject(title: string, tags: string[]): ProjectCategory[] {
-  const t = title.toLowerCase();
-  const cats: ProjectCategory[] = ["all"];
+  const value = title.toLowerCase();
+  const categories: ProjectCategory[] = ["all"];
 
-  if (
-    t.includes("jakevo") ||
-    t.includes("karir") ||
-    t.includes("career") ||
-    t.includes("dtkte") ||
-    t.includes("antrian") ||
-    t.includes("queue")
-  ) {
-    cats.push("gov");
+  if (["jakevo", "karir", "career", "dtkte", "antrian", "queue"].some((word) => value.includes(word))) {
+    categories.push("gov");
+  }
+  if (["api", "datawarehouse", "data warehouse", "dinas sosial", "social agency"].some((word) => value.includes(word)) || tags.includes("REST API")) {
+    categories.push("api");
+  }
+  if (["kepegawaian", "staff", "esarpras", "sarpras", "monitoring", "sipka", "company"].some((word) => value.includes(word))) {
+    categories.push("internal");
   }
 
-  if (
-    t.includes("api") ||
-    tags.includes("REST API") ||
-    t.includes("datawarehouse") ||
-    t.includes("data warehouse") ||
-    t.includes("dinas sosial") ||
-    t.includes("social agency")
-  ) {
-    cats.push("api");
-  }
-
-  if (
-    t.includes("kepegawaian") ||
-    t.includes("staff") ||
-    t.includes("esarpras") ||
-    t.includes("sarpras") ||
-    t.includes("monitoring") ||
-    t.includes("sipka") ||
-    t.includes("company")
-  ) {
-    cats.push("internal");
-  }
-
-  return cats;
+  return categories;
 }
 
 export default function Projects() {
@@ -54,140 +30,114 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>("all");
   const [imgErrorMap, setImgErrorMap] = useState<Record<string, boolean>>({});
 
-  const filteredProjects = t.projects.items.filter((item) => {
-    const cats = getCategoryForProject(item.title, item.tags);
-    return cats.includes(activeCategory);
-  });
+  const filteredProjects = t.projects.items.filter((item) =>
+    getCategoryForProject(item.title, item.tags).includes(activeCategory)
+  );
 
   return (
-    <section id="projects" className="relative mx-auto max-w-5xl px-4 py-24 sm:px-6">
-      <SectionHeading
-        tag={t.projects.tag}
-        title={t.projects.title}
-        subtitle={t.projects.subtitle}
-      />
+    <section id="projects" className="mx-auto max-w-5xl px-4 py-24 sm:px-6 sm:py-32">
+      <SectionHeading tag={t.projects.tag} title={t.projects.title} subtitle={t.projects.subtitle} />
 
-      {/* Category Tabs */}
-      <div className="mb-10 flex flex-wrap items-center gap-2">
-        {t.projects.categories.map((cat) => {
-          const isActive = activeCategory === cat.id;
+      <div className="mb-8 flex flex-wrap gap-2 border-b border-[#d8cfc0] pb-5 dark:border-[#535a50]" role="toolbar" aria-label="Filter projects">
+        {t.projects.categories.map((category) => {
+          const active = activeCategory === category.id;
           return (
             <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id as ProjectCategory)}
-              aria-pressed={activeCategory === cat.id}
-              className={`rounded-lg px-3.5 py-1.5 text-xs font-medium transition-colors ${
-                isActive
-                  ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
-                  : "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 dark:border-slate-800 dark:bg-[#11141f] dark:text-slate-400 dark:hover:bg-slate-800"
+              key={category.id}
+              type="button"
+              onClick={() => setActiveCategory(category.id as ProjectCategory)}
+              aria-pressed={active}
+              className={`min-h-11 px-3 text-xs font-semibold transition-colors ${
+                active
+                  ? "bg-[#24211d] text-[#fffaf2] dark:bg-[#fffaf2] dark:text-[#24211d]"
+                  : "border border-[#d8cfc0] text-[#6b6459] hover:border-[#a4452d] hover:text-[#a4452d] dark:border-[#535a50] dark:text-[#c9c3b7]"
               }`}
             >
-              {cat.label}
+              {category.label}
             </button>
           );
         })}
       </div>
 
-      {/* Projects Grid */}
-      <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <AnimatePresence>
+      <div className="space-y-4">
+        <AnimatePresence mode="popLayout">
           {filteredProjects.map((project, index) => {
-            const isLive = Boolean(project.link);
-
+            const imageUnavailable = !project.image || imgErrorMap[project.title];
             return (
-              <motion.div
+              <motion.article
                 layout
                 key={project.title}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
-                className={`h-full ${index === 0 ? "sm:col-span-2 lg:col-span-2" : ""}`}
+                className={`group grid overflow-hidden border border-[#d8cfc0] bg-[#fffaf2] dark:border-[#535a50] dark:bg-[#282c27] ${
+                  index === 0 ? "lg:grid-cols-[1.1fr_1fr]" : "lg:grid-cols-[0.72fr_1fr]"
+                }`}
               >
-                <div className={`flat-card flat-card-hover flex h-full flex-col overflow-hidden ${index === 0 ? "sm:flex-row" : ""}`}>
-                  {/* Thumbnail / Header */}
-                  <div className={`relative aspect-[16/9] w-full bg-slate-100 dark:bg-[#0c0e14] border-b border-slate-100 dark:border-slate-800 ${index === 0 ? "sm:min-h-full sm:w-1/2 sm:border-b-0 sm:border-r" : ""}`}>
-                    {project.image && !imgErrorMap[project.title] ? (
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover object-top"
-                        onError={() =>
-                          setImgErrorMap((prev) => ({ ...prev, [project.title]: true }))
-                        }
-                      />
-                    ) : (
-                      <div className="flex h-full w-full items-center justify-center p-4 text-center">
-                        <span className="font-mono text-sm font-bold text-slate-400">
-                          {project.title.slice(0, 16)}
-                        </span>
-                      </div>
-                    )}
+                <div className={`relative min-h-48 overflow-hidden bg-[#e8e0d3] dark:bg-[#20241f] ${index === 0 ? "lg:min-h-80" : "lg:min-h-56"}`}>
+                  {!imageUnavailable ? (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 45vw"
+                      className="object-cover object-top grayscale-[0.18] transition duration-500 group-hover:scale-[1.02] group-hover:grayscale-0"
+                      onError={() => setImgErrorMap((current) => ({ ...current, [project.title]: true }))}
+                    />
+                  ) : (
+                    <div className="flex h-full items-end p-5">
+                      <span className="font-display text-2xl text-[#a4452d] dark:text-[#df9b86]">{project.title}</span>
+                    </div>
+                  )}
+                  <span className="absolute left-4 top-4 font-mono text-xs font-semibold text-[#fffaf2] drop-shadow-[0_1px_2px_rgba(0,0,0,0.55)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
 
-                    {isLive && (
-                      <span className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 rounded-md bg-white/95 px-2 py-0.5 font-mono text-[10px] font-medium text-emerald-700 shadow-xs dark:bg-slate-900/90 dark:text-emerald-300">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                        {lang === "en" ? "Public link" : "Tautan publik"}
+                <div className="flex flex-col justify-between p-5 sm:p-7">
+                  <div>
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <h3 className="max-w-xl font-display text-2xl leading-tight text-[#24211d] dark:text-[#fffaf2]">{project.title}</h3>
+                      <span className="font-mono text-[10px] uppercase tracking-wide text-[#8a3927] dark:text-[#df9b86]">
+                        {index === 0
+                          ? lang === "en" ? "Featured work" : "Karya utama"
+                          : lang === "en" ? "Selected work" : "Karya pilihan"}
                       </span>
-                    )}
+                    </div>
+                    <p className="mt-4 max-w-2xl text-sm leading-6 text-[#625b50] dark:text-[#c9c3b7]">{project.description}</p>
                   </div>
 
-                  {/* Body */}
-                  <div className="flex flex-1 flex-col p-5 sm:p-6">
-                    <h3 className="font-display text-base font-bold text-slate-900 dark:text-white">
-                      {project.title}
-                    </h3>
-                    <p className="mt-2 flex-1 text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="mt-4 flex flex-wrap gap-1.5">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded border border-slate-200 bg-slate-50 px-2 py-0.5 font-mono text-[10px] text-slate-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                  <div className="mt-7 flex flex-wrap items-end justify-between gap-4 border-t border-[#e1d8ca] pt-4 dark:border-[#535a50]">
+                    <div className="flex flex-wrap gap-x-3 gap-y-1 font-mono text-[11px] text-[#7a7369] dark:text-[#aaa398]">
+                      {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                     </div>
-
-                    {/* Action */}
-                    <div className="mt-5 border-t border-slate-100 pt-3 text-xs font-mono dark:border-slate-800 flex items-center justify-between">
-                      {project.link ? (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 inline-flex items-center gap-1"
-                        >
-                          <span>{t.projects.liveDemo}</span>
+                    <div className="flex items-center gap-4 text-xs font-semibold">
+                      {project.link && (
+                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-[#8a3927] underline decoration-[#c06b51] decoration-2 underline-offset-4 hover:text-[#a4452d] dark:text-[#df9b86]">
+                          {t.projects.liveDemo}
                         </a>
-                      ) : (
-                        <span className="text-slate-400">{t.projects.internalProject}</span>
                       )}
-
                       {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
-                        >
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-[#625b50] underline underline-offset-4 hover:text-[#24211d] dark:text-[#c9c3b7] dark:hover:text-[#fffaf2]">
                           GitHub
                         </a>
                       )}
+                      {!project.link && !project.github && <span className="text-[#8b8479] dark:text-[#aaa398]">{t.projects.internalProject}</span>}
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             );
           })}
         </AnimatePresence>
-      </motion.div>
+      </div>
+
+      {filteredProjects.length === 0 && (
+        <p className="border border-dashed border-[#bdb3a4] p-8 text-center text-sm text-[#625b50] dark:border-[#6b7568] dark:text-[#c9c3b7]">
+          {lang === "en" ? "No projects match this filter yet." : "Belum ada proyek yang cocok dengan filter ini."}
+        </p>
+      )}
     </section>
   );
 }
