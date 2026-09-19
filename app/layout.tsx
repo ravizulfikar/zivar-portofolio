@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Fraunces, IBM_Plex_Mono } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/data/portfolio";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -7,29 +7,28 @@ import { LanguageProvider } from "@/components/LanguageProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const sans = DM_Sans({
+const sans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const display = Fraunces({
+const display = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
 
-const mono = IBM_Plex_Mono({
+const mono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: "400",
   variable: "--font-mono",
   display: "swap",
 });
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fcfcfd" },
-    { media: "(prefers-color-scheme: dark)", color: "#0b0d14" },
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#090d16" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -38,16 +37,15 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name}, Software Developer Laravel Jakarta`,
-    template: `%s | ${siteConfig.name}, zivar.my.id`,
+    default: `${siteConfig.name} — Backend & System Integration Engineer`,
+    template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Portofolio Ravi Zulfikar (Zivar), software developer Laravel dan backend di Jakarta yang berfokus pada REST API, PostgreSQL, serta integrasi sistem GovTech.",
+    "Portofolio Ravi Zulfikar (Zivar), software engineer spesialis backend Laravel, PostgreSQL, RESTful API, dan integrasi sistem publik GovTech di DKI Jakarta.",
   keywords: [
     "Ravi Zulfikar",
     "Zivar",
     "zivar.my.id",
-    "Ravi Zulfikar developer",
     "Software Developer Jakarta",
     "Laravel Developer Jakarta",
     "Backend Developer Jakarta",
@@ -55,6 +53,7 @@ export const metadata: Metadata = {
     "PHP",
     "Laravel",
     "RESTful API",
+    "PostgreSQL",
     "System Integration",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.socials.github }],
@@ -78,9 +77,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `${siteConfig.name}, Software Developer Laravel Jakarta`,
+    title: `${siteConfig.name} — Backend & System Integration Engineer`,
     description:
-      "Portofolio software developer Laravel dan backend di Jakarta dengan fokus REST API, database, dan integrasi sistem GovTech.",
+      "Portofolio software developer Laravel dan backend di Jakarta dengan fokus REST API, database terdistribusi, dan integrasi sistem GovTech.",
     url: siteConfig.url,
     siteName: `${siteConfig.name} Portfolio`,
     locale: "id_ID",
@@ -89,11 +88,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name}, Software Developer Laravel Jakarta`,
+    title: `${siteConfig.name} — Backend & System Integration Engineer`,
     description:
-      "Portofolio Ravi Zulfikar: Laravel, PHP, REST API, database, dan integrasi sistem GovTech di Jakarta.",
+      "Portofolio Ravi Zulfikar: Laravel, PHP, REST API, database relasional, dan integrasi sistem GovTech di Jakarta.",
     creator: "@ravizulfikar",
   },
+  manifest: "/manifest.webmanifest",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -107,7 +107,6 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  // Structured Data (JSON-LD) for Google Rich Snippets & Knowledge Graph
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -141,7 +140,7 @@ export default function RootLayout({
           "PostgreSQL",
           "MySQL",
           "System Integration",
-          "Web Development",
+          "GovTech Architecture",
         ],
         knowsLanguage: ["id", "en"],
         address: {
@@ -165,7 +164,7 @@ export default function RootLayout({
         "@type": "ProfilePage",
         "@id": `${siteConfig.url}/#profile-page`,
         url: siteConfig.url,
-        name: `${siteConfig.name}, Software Developer Laravel Jakarta`,
+        name: `${siteConfig.name} — Backend & System Integration Engineer`,
         description: siteConfig.description,
         mainEntity: { "@id": `${siteConfig.url}/#person` },
         isPartOf: { "@id": `${siteConfig.url}/#website` },
@@ -176,14 +175,14 @@ export default function RootLayout({
 
   return (
     <html
-      lang="id"
+      lang="en"
       suppressHydrationWarning
       className={`scroll-smooth ${sans.variable} ${display.variable} ${mono.variable}`}
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('zivar-theme');var d=t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.add(d?'dark':'light')}catch(e){document.documentElement.classList.add('light')}})()`,
+            __html: `(function(){try{var t=localStorage.getItem('zivar-theme');var d=t==='dark';document.documentElement.classList.add(d?'dark':'light')}catch(e){document.documentElement.classList.add('light')}})()`,
           }}
         />
         <script
@@ -191,7 +190,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen font-sans text-slate-600 dark:text-slate-400 antialiased transition-colors duration-200">
+      <body className="min-h-screen font-sans bg-[#f8fafc] text-slate-700 dark:bg-[#090d16] dark:text-slate-300 antialiased selection:bg-sky-500/20 selection:text-sky-700 dark:selection:text-sky-300 transition-colors duration-200">
         <ThemeProvider>
           <LanguageProvider>
             {children}

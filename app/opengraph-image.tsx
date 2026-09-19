@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/data/portfolio";
 
-export const alt = `${siteConfig.name}, Software Developer & Laravel Specialist`;
+export const alt = `${siteConfig.name} — Backend & System Integration Engineer`;
 export const size = {
   width: 1200,
   height: 630,
@@ -19,7 +19,7 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "space-between",
-          backgroundColor: "#0b0d14",
+          backgroundColor: "#090d16",
           padding: "80px",
           fontFamily: "sans-serif",
         }}
@@ -29,27 +29,28 @@ export default async function Image() {
             style={{
               width: "48px",
               height: "48px",
-              borderRadius: "12px",
-              backgroundColor: "#6366f1",
+              backgroundColor: "rgba(14, 165, 233, 0.15)",
+              border: "1px solid #0ea5e9",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#ffffff",
-              fontSize: "22px",
+              color: "#38bdf8",
+              fontSize: "20px",
               fontWeight: "bold",
+              fontFamily: "monospace",
             }}
           >
             RZ
           </div>
-          <span style={{ color: "#94a3b8", fontSize: "24px", fontFamily: "monospace" }}>
-            zivar.my.id
+          <span style={{ color: "#94a3b8", fontSize: "22px", fontFamily: "monospace" }}>
+            zivar.my.id // systems
           </span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <h1
             style={{
-              fontSize: "64px",
+              fontSize: "60px",
               fontWeight: "900",
               color: "#ffffff",
               lineHeight: 1.1,
@@ -60,24 +61,24 @@ export default async function Image() {
           </h1>
           <p
             style={{
-              fontSize: "30px",
-              color: "#818cf8",
+              fontSize: "28px",
+              color: "#38bdf8",
               margin: 0,
               fontWeight: "600",
             }}
           >
-            Software Developer &amp; Laravel Backend Specialist
+            Backend &amp; System Integration Engineer
           </p>
           <p
             style={{
-              fontSize: "22px",
+              fontSize: "20px",
               color: "#94a3b8",
               margin: 0,
-              maxWidth: "900px",
+              maxWidth: "920px",
               lineHeight: 1.4,
             }}
           >
-            DPMPTSP Provinsi DKI Jakarta • PHP • Laravel • Python • Node.js • RESTful API • PostgreSQL
+            DPMPTSP Provinsi DKI Jakarta • PHP • Laravel • PostgreSQL • RESTful API • GovTech Interoperability
           </p>
         </div>
 
@@ -86,23 +87,23 @@ export default async function Image() {
             display: "flex",
             alignItems: "center",
             gap: "24px",
-            borderTop: "1px solid #1e2433",
+            borderTop: "1px solid #1e293b",
             paddingTop: "24px",
             width: "100%",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             <div style={{ width: "10px", height: "10px", borderRadius: "50%", backgroundColor: "#10b981" }} />
-            <span style={{ color: "#10b981", fontSize: "18px", fontWeight: "bold" }}>
+            <span style={{ color: "#10b981", fontSize: "17px", fontWeight: "bold" }}>
               5+ Tahun Pengalaman
             </span>
           </div>
-          <span style={{ color: "#64748b", fontSize: "18px" }}>•</span>
-          <span style={{ color: "#cbd5e1", fontSize: "18px" }}>
+          <span style={{ color: "#475569", fontSize: "18px" }}>•</span>
+          <span style={{ color: "#cbd5e1", fontSize: "17px" }}>
             12+ Sistem Terintegrasi
           </span>
-          <span style={{ color: "#64748b", fontSize: "18px" }}>•</span>
-          <span style={{ color: "#cbd5e1", fontSize: "18px" }}>
+          <span style={{ color: "#475569", fontSize: "18px" }}>•</span>
+          <span style={{ color: "#94a3b8", fontSize: "17px" }}>
             Jakarta, Indonesia
           </span>
         </div>

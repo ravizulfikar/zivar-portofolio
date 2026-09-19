@@ -10,83 +10,65 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        pastel: {
-          lavender: {
-            subtle: "#eef2ff",
-            light: "#e0e7ff",
-            DEFAULT: "#818cf8",
-            border: "#c7d2fe",
-            text: "#4338ca",
+        // System Design Palette: Refined Graphite / Deep Navy, Off-White, Electric Cyan & Teal
+        sys: {
+          bg: {
+            light: "#f8fafc",      // slate-50 off-white canvas
+            dark: "#090d16",       // deep obsidian / graphite navy canvas
           },
-          sky: {
-            subtle: "#f0f9ff",
-            light: "#e0f2fe",
-            DEFAULT: "#38bdf8",
-            border: "#bae6fd",
-            text: "#0369a1",
+          surface: {
+            light: "#ffffff",      // card white
+            dark: "#0f172a",       // slate-900 primary card
           },
-          mint: {
-            subtle: "#ecfdf5",
-            light: "#d1fae5",
-            DEFAULT: "#34d399",
-            border: "#a7f3d0",
-            text: "#047857",
+          elevated: {
+            light: "#f1f5f9",      // slate-100 secondary panel
+            dark: "#131d33",       // elevated panel navy
           },
-          rose: {
-            subtle: "#fff1f2",
-            light: "#ffe4e6",
-            DEFAULT: "#fb7185",
-            border: "#fecdd3",
-            text: "#be123c",
+          border: {
+            light: "#e2e8f0",      // slate-200
+            dark: "#1e293b",       // slate-800
+            subtle: {
+              light: "#cbd5e1",    // slate-300
+              dark: "#334155",     // slate-700
+            },
           },
-          amber: {
-            subtle: "#fffbeb",
-            light: "#fef3c7",
-            DEFAULT: "#fbbf24",
-            border: "#fde68a",
-            text: "#b45309",
+          text: {
+            primary: {
+              light: "#0f172a",    // slate-900
+              dark: "#f8fafc",     // slate-50
+            },
+            secondary: {
+              light: "#334155",    // slate-700
+              dark: "#94a3b8",     // slate-400
+            },
+            muted: {
+              light: "#64748b",    // slate-500
+              dark: "#64748b",     // slate-500
+            },
           },
-          slate: {
-            50: "#f8fafc",
-            100: "#f1f5f9",
-            200: "#e2e8f0",
-            300: "#cbd5e1",
-            400: "#94a3b8",
-            500: "#64748b",
-            600: "#475569",
-            700: "#334155",
-            800: "#1e293b",
-            900: "#0f172a",
-            950: "#0b0f19",
+          accent: {
+            DEFAULT: "#0ea5e9",    // Electric Cyan / Sky-500
+            hover: "#0284c7",      // Sky-600
+            light: "#38bdf8",      // Sky-400
+            teal: "#14b8a6",       // Teal-500
           },
         },
-      },
-      boxShadow: {
-        "pastel-sm": "0 2px 8px -1px rgba(99, 102, 241, 0.06), 0 1px 3px -1px rgba(0, 0, 0, 0.04)",
-        "pastel-md": "0 8px 24px -4px rgba(99, 102, 241, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03)",
-        "pastel-lg": "0 16px 36px -6px rgba(99, 102, 241, 0.12), 0 8px 20px -4px rgba(0, 0, 0, 0.04)",
-        "pastel-glow": "0 0 30px -5px rgba(129, 140, 248, 0.25)",
-        "dark-card": "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "Georgia", "serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
       },
-      animation: {
-        "fade-up": "fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "float-slow": "float 6s ease-in-out infinite",
+      boxShadow: {
+        "sys-sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+        "sys-card": "0 4px 20px -2px rgba(15, 23, 42, 0.05)",
+        "sys-card-dark": "0 4px 24px -2px rgba(0, 0, 0, 0.4)",
+        "sys-glow": "0 0 25px -5px rgba(14, 165, 233, 0.15)",
+        "sys-elevated": "0 12px 32px -8px rgba(15, 23, 42, 0.08)",
+        "sys-elevated-dark": "0 12px 32px -8px rgba(0, 0, 0, 0.55)",
       },
-      keyframes: {
-        fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-8px)" },
-        },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
     },
   },

@@ -19,14 +19,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Respect a saved choice, otherwise follow the operating-system preference.
+    // Respect a saved choice, otherwise default to light theme.
     const savedTheme = localStorage.getItem("zivar-theme") as Theme | null;
-    const initialTheme =
-      savedTheme === "dark" || savedTheme === "light"
-        ? savedTheme
-        : window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
+    const initialTheme = savedTheme === "dark" ? "dark" : "light";
     setThemeState(initialTheme);
     applyTheme(initialTheme);
     setMounted(true);

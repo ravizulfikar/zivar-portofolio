@@ -144,7 +144,7 @@ export const translations: Record<Language, Translations> = {
         "PHP Specialist",
       ],
       availabilityBadge: "Software Programmer @ DPMPTSP DKI Jakarta",
-      bio: "Software Developer at DPMPTSP DKI Jakarta with 5+ years of experience. Focused on architecting high-performance RESTful APIs, scalable backend systems with PHP & Laravel, Python, Node.js, relational database optimization, and strategic public service integrations for Jakarta citizens.",
+      bio: "Software Developer with 5+ years of experience engineering resilient backend architectures, high-performance RESTful APIs with PHP & Laravel, Python, Node.js, relational database optimization (PostgreSQL & MySQL), and scalable enterprise & public service system integrations.",
       ctaProjects: "View Projects",
       ctaCV: "Download CV (PDF)",
       ctaContact: "Contact Me",
@@ -244,7 +244,7 @@ export const translations: Record<Language, Translations> = {
         { id: "api", label: "API & Integration" },
         { id: "internal", label: "Internal Systems" },
       ],
-      liveDemo: "Live Demo",
+      liveDemo: "Visit Website",
       internalProject: "Internal System",
       items: [
         {
@@ -489,7 +489,7 @@ export const translations: Record<Language, Translations> = {
         "Backend Specialist",
       ],
       availabilityBadge: "Software Programmer @ DPMPTSP DKI Jakarta",
-      bio: "Software Developer di DPMPTSP Provinsi DKI Jakarta dengan pengalaman 5+ tahun. Berfokus pada perancangan RESTful API, arsitektur backend PHP & Laravel, Python, Node.js, optimasi database relasional, serta integrasi sistem perizinan publik warga Jakarta.",
+      bio: "Software Developer dengan pengalaman 5+ tahun dalam merancang arsitektur backend andal, RESTful API performa tinggi berbasis PHP & Laravel, Python, Node.js, optimasi database relasional (PostgreSQL & MySQL), serta integrasi sistem modern berskala besar.",
       ctaProjects: "Lihat Proyek",
       ctaCV: "Unduh CV (PDF)",
       ctaContact: "Hubungi Saya",
@@ -589,7 +589,7 @@ export const translations: Record<Language, Translations> = {
         { id: "api", label: "API & Integrasi" },
         { id: "internal", label: "Sistem Internal" },
       ],
-      liveDemo: "Lihat Demo",
+      liveDemo: "Kunjungi Website",
       internalProject: "Sistem Internal",
       items: [
         {
